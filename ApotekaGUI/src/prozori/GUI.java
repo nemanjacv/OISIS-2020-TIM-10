@@ -2,6 +2,7 @@ package prozori;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -118,6 +119,8 @@ public class GUI {
 		login.setBorder(null);
 		login.setFocusable(false);
 		login.setContentAreaFilled(false);
+		login.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 	    
 		JPanel logo = new JPanel();
 		logo.setBackground( Color.white );
