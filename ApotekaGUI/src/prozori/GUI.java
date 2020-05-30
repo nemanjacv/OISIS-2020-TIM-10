@@ -14,6 +14,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -21,6 +24,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
@@ -75,19 +79,21 @@ public	GUI()
 	                imetxt.setText("");
 	            }
 	        });
+		
 		imetxt.setOpaque( false );
 		imetxt.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 		JLabel ime = new JLabel( new ImageIcon(image2, field1.getDescription()) );
 		ime.setLayout( new BorderLayout() );
 		ime.add( imetxt );
 		
-		JTextField passtxt = new JTextField("Lozinka");
+		JPasswordField passtxt = new JPasswordField("Lozinka");
 		 passtxt.addMouseListener(new MouseAdapter(){
 	            @Override
 	            public void mouseClicked(MouseEvent e){
 	                passtxt.setText("");
 	            }
 	        });
+		
 		passtxt.setOpaque( false );
 		passtxt.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 		JLabel pass = new JLabel( new ImageIcon(image2, field1.getDescription()) );
@@ -145,7 +151,7 @@ public	GUI()
 		
 		b1.setIcon(btnn1);
 		b1.setBorder(null);
-		b1.setFocusable(false);
+		//b1.setFocusable(false);
 		b1.setContentAreaFilled(false);
 		b1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
@@ -185,8 +191,68 @@ public	GUI()
 		login.setFocusable(false);
 		login.setContentAreaFilled(false);
 		login.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-	    
+		
+		
+		
+	    login.addActionListener(new ActionListener() {
+	    	int k=0;
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				File fileL = new File("users/lekar.txt");
+				File fileA = new File("users/apotekar.txt");
+				String user = imetxt.getText();
+				@SuppressWarnings("deprecation")
+				String pass = passtxt.getText();
+				
+				if (user.contains("admin") && pass.contains("admin"))
+				{
+					//Admin adminwin = new Admin();
+					//adminwin.setVisible(true);
+				}
+				
+				else
+				{
+					try {
+					    Scanner scannerL = new Scanner(fileL);
+					    //now read the file line by line...
+					    while (scannerL.hasNextLine()) {
+					    	String line = scannerL.nextLine();
+					    	String line2 = scannerL.nextLine();
+					    	if (user.contains(line) && pass.contains(line2))
+							{
+					    		System.out.print("u kno dis shi");
+					    		//scannerL.close();
+							}
+					    	
+					    }
+					} catch(FileNotFoundException r) { 
+					    //handle this
+					}
+					
+					try {
+					    Scanner scannerA = new Scanner(fileA);
+					    //now read the file line by line...
+					    while (scannerA.hasNextLine()) {
+					    	String line = scannerA.nextLine();
+					    	String line2 = scannerA.nextLine();
+					    	if (user.contains(line) && pass.contains(line2))
+							{
+					    		System.out.print("u ril kno dis shi");
+					    		//scannerA.close();
+							}
+					    	
+					    }
+					} catch(FileNotFoundException r) { 
+					    //handle this
+					}
+					} 
+				k++;
+				if (k==3)
+				{ System.exit(0); }
+			}
+		});
+		
 		JPanel logo = new JPanel();
 		logo.setLayout( new FlowLayout(FlowLayout.LEFT) );
 		logo.setBackground( Color.white );
