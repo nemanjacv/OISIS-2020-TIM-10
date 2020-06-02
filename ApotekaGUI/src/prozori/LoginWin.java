@@ -27,7 +27,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-
 public class LoginWin implements ActionListener{
 	int i =1;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -37,7 +36,7 @@ public class LoginWin implements ActionListener{
 	//velicina prozora
 	int winHeight = (int) (Math.round(screenHeight * 0.50));
 	int winWidth = (int) (Math.round(screenWidth * 0.50));
-			
+	
 	//velicina dugmeta
 	int bHeight1 = (int) (Math.round(winHeight * 0.10));
 	int bWidth1 = (int) (Math.round(winWidth * 0.25));
@@ -53,8 +52,7 @@ public class LoginWin implements ActionListener{
 	
 	
 public	LoginWin()
-	{ 
-            
+	{      
 		frame.setPreferredSize(new Dimension(winWidth, winHeight));
 		
 		JPanel dugme = new JPanel();
@@ -190,8 +188,6 @@ public	LoginWin()
 		login.setFocusable(false);
 		login.setContentAreaFilled(false);
 		login.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		
 		
 	    login.addActionListener(new ActionListener() {
 	    	int k=0;

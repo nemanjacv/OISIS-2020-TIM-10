@@ -22,8 +22,8 @@ public class promenljive {
 	int fWidth1 = (int) (Math.round(winWidth * 0.20));
 	
 	//velicina logoa
-	int lHeight1 = (int) (Math.round(winHeight * 0.32));
-	int lWidth1 = (int) (Math.round(winHeight * 0.36));
+	public int lHeight1 = (int) (Math.round(winHeight * 0.32));
+	public int lWidth1 = (int) (Math.round(winHeight * 0.36));
 
     public int source1 = 1;
 
