@@ -30,12 +30,16 @@ public class promenljive {
 	public int lWidth1 = (int) (Math.round(winHeight * 0.15));
 	
 	//velicina ikonica
-	public int iHeight = (int) (Math.round(winHeight * 0.1));
-	public int iWidth = (int) (Math.round(winHeight * 0.1));
+	public int iHeight = (int) (Math.round(winHeight * 0.15));
+	public int iWidth = (int) (Math.round(winHeight * 0.15));
 	
 	//velicina dugmeta za logo manji
 	public int blHeight1 = (int) (Math.round(winHeight * 0.05));
 	public int blWidth1 = (int) (Math.round(winWidth * 0.036));
+	
+	//block
+	public int blHeight = (int) (Math.round(screenHeight * 0.09));
+	public int blnWidth = (int) (Math.round(screenWidth * 0.05));
 
     public int source1 = 1;
 
