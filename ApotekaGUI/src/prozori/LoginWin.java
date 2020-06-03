@@ -143,7 +143,7 @@ public	LoginWin()
 	    dugmad.add(b3);
 	    
 	    b1.setPreferredSize(new Dimension(30, 30));
-	    ImageIcon btnn1 = new ImageIcon("img/1.png");
+	    ImageIcon btnn1 = new ImageIcon("img/2.png");
 		Image butn1 = btnn1.getImage().getScaledInstance( 30, 30 , Image.SCALE_SMOOTH);
 		btnn1 = new ImageIcon(butn1, btnn1.getDescription());
 		
@@ -165,7 +165,7 @@ public	LoginWin()
 		b2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		b3.setPreferredSize(new Dimension(30, 30));
-	    ImageIcon btnn3 = new ImageIcon("img/3.png");
+	    ImageIcon btnn3 = new ImageIcon("img/1.png");
 		Image butn3 = btnn3.getImage().getScaledInstance( 30, 30 , Image.SCALE_SMOOTH);
 		btnn3 = new ImageIcon(butn3, btnn3.getDescription());
 		
@@ -305,6 +305,13 @@ public	LoginWin()
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public void setVisible(boolean b) {
 		// TODO Auto-generated method stub
 		
 	}

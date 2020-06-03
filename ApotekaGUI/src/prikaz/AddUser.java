@@ -14,7 +14,6 @@ public class AddUser extends JPanel {
 	promenljive source = new promenljive();
 	public AddUser()
 	{
-	
 	ImageIcon logoico = new ImageIcon("img/i4.png");
 	Image image3 = logoico.getImage().getScaledInstance( source.iWidth, source.iHeight , Image.SCALE_SMOOTH);
 	JButton logo = new JButton("");

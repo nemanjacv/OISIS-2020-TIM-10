@@ -10,8 +10,6 @@ import javax.swing.JPanel;
 import kontroleri.promenljive;
 
 public class Izvestaj extends JPanel {
-
-	
 	private static final long serialVersionUID = -958450762788196651L;
 	promenljive source = new promenljive();
 	public Izvestaj()
