@@ -26,8 +26,12 @@ public class promenljive {
 	public int lWidth = (int) (Math.round(winHeight * 0.36));
 	
 	//velicina logoa manjeg
-	public int lHeight1 = (int) (Math.round(winHeight * 0.15));
+	public int lHeight1 = (int) (Math.round(winHeight * 0.14));
 	public int lWidth1 = (int) (Math.round(winHeight * 0.15));
+	
+	//velicina ikonica
+	public int iHeight = (int) (Math.round(winHeight * 0.1));
+	public int iWidth = (int) (Math.round(winHeight * 0.1));
 	
 	//velicina dugmeta za logo manji
 	public int blHeight1 = (int) (Math.round(winHeight * 0.05));

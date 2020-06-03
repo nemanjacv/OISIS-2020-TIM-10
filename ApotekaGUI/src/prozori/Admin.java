@@ -4,6 +4,7 @@ import prikaz.*;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -21,9 +22,11 @@ public class Admin {
 
 	JFrame prozor = new JFrame();
 	promenljive source = new promenljive();
+	JLabel korisnik = new JLabel("Admin");
 	
 	JButton prazan1 = new JButton("1");
 	JButton prazan2 = new JButton("2");
+	JButton prazan22 = new JButton("2");
 	JButton prazan3 = new JButton("3");
 	JButton prazan4 = new JButton("4");
 	JButton prazan5 = new JButton("5");
@@ -35,6 +38,7 @@ public class Admin {
 	JButton prazan11 = new JButton("11");
 	
 	JPanel logo = new Logo();
+	JPanel ulist = new UserList();
 	
 	ImageIcon slika1 = new ImageIcon("img/bckgrnd.png");
 	Image pozadina = slika1.getImage().getScaledInstance( source.winWidth, source.winHeight, Image.SCALE_SMOOTH);
@@ -46,6 +50,9 @@ public class Admin {
 		prozor.setPreferredSize(new Dimension(source.winWidth, source.winHeight));
 		bckgrnd.setLayout(new GridBagLayout());
 		prozor.setContentPane(bckgrnd);
+		
+		korisnik.setFont(new Font("Calibri", Font.PLAIN, 40));
+		korisnik.setForeground( Color.white);
 		
 		prazan1.setContentAreaFilled(false);
 		prazan2.setContentAreaFilled(false);
@@ -61,39 +68,50 @@ public class Admin {
 		logo.setBackground(Color.white);
 		bckgrnd.add(logo, gbc);
 		
-		gbc.gridx = 1;
+		//gbc.gridx = 1;
+		//gbc.gridy = 0;
+		//gbc.gridwidth = 2;
+		//bckgrnd.add(korisnik,gbc);
+		
+		gbc.gridx = 0;
 		gbc.gridy = 1;
-		bckgrnd.add(prazan2, gbc);
+		ulist.setLayout(new GridLayout(1,1));
+		ulist.setBackground(Color.white);
+		bckgrnd.add(ulist, gbc);
+		
+		gbc.gridx = 1;
+		gbc.gridy = 2;
+		bckgrnd.add(prazan22, gbc);
 
-		gbc.gridx = 2;
+		gbc.gridx = 3;
 		gbc.gridy = 2;
 		bckgrnd.add(prazan3, gbc);
 		
-		gbc.gridx = 3;
+		gbc.gridx = 4;
 		gbc.gridy = 3;
 		bckgrnd.add(prazan4, gbc);
 		
-		gbc.gridx = 4;
+		gbc.gridx = 5;
 		gbc.gridy = 4;
 		bckgrnd.add(prazan5, gbc);
 		
-		gbc.gridx = 5;
+		gbc.gridx = 6;
 		gbc.gridy = 5;
 		bckgrnd.add(prazan6, gbc);
 		
-		gbc.gridx = 6;
+		gbc.gridx = 7;
 		gbc.gridy = 0;
 		bckgrnd.add(prazan7, gbc);
 		
-		gbc.gridx = 7;
+		gbc.gridx = 8;
 		gbc.gridy = 0;
 		bckgrnd.add(prazan8, gbc);
 		
-		gbc.gridx = 8;
+		gbc.gridx = 9;
 		gbc.gridy = 0;
 		bckgrnd.add(prazan9, gbc);
 		
-		gbc.gridx = 9;
+		gbc.gridx = 10;
 		gbc.gridy = 0;
 		bckgrnd.add(prazan10, gbc);	
 		
