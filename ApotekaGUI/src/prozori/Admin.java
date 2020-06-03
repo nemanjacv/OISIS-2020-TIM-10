@@ -2,20 +2,24 @@ package prozori;
 
 import prikaz.*;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.Insets;
+import java.time.Year;
 
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 import kontroleri.promenljive;
 
@@ -23,9 +27,10 @@ public class Admin {
 
 	JFrame prozor = new JFrame();
 	promenljive source = new promenljive();
+	
 	JLabel korisnik = new JLabel("Admin");
 	
-	JButton prazan1 = new JButton("123");
+	JButton prazan1 = new JButton("1");
 	JButton prazan2 = new JButton("2");
 	JButton prazan3 = new JButton("3");
 	JButton prazan4 = new JButton("4");
@@ -41,9 +46,14 @@ public class Admin {
 	JPanel ulist = new UserList();
 	JPanel lek = new lekovi();
 	JPanel izv = new Izvestaj();
+	JPanel dno = new JPanel();
+	JPanel ctrl = new JPanel();
+	
+	JPanel top = new JPanel();
+	JPanel ikone = new JPanel();
+	
 	JButton praznoP1 = new JButton("prazno");
 	JButton praznoP2 = new JButton("buduce dugme");
-	JPanel sam = new JPanel();
 	
 	ImageIcon slika1 = new ImageIcon("img/bckgrnd.png");
 	Image pozadina = slika1.getImage().getScaledInstance( source.winWidth, source.winHeight, Image.SCALE_SMOOTH);
@@ -51,116 +61,47 @@ public class Admin {
 	
 	public Admin()
 	{
+		
 		prozor.setUndecorated(true);
 		prozor.setPreferredSize(new Dimension(source.winWidth, source.winHeight));
-		bckgrnd.setLayout(new GridBagLayout());
+		bckgrnd.setLayout(new BorderLayout());
 		prozor.setContentPane(bckgrnd);
+		
+		top.setPreferredSize(new Dimension(source.winWidth,source.blHeight));
+		top.setOpaque(false);
+		top.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
 		korisnik.setFont(new Font("Calibri", Font.PLAIN, 40));
 		korisnik.setForeground( Color.white);
+		EmptyBorder eBorder = new EmptyBorder(0, 20, 0, 0);
+	    korisnik.setBorder(BorderFactory.createCompoundBorder(null, eBorder));
 		
-		prazan1.setContentAreaFilled(false);
-		prazan2.setContentAreaFilled(false);
-		
-		GridBagConstraints gbc =new GridBagConstraints();
-		gbc.fill= GridBagConstraints.BOTH;
-		//gbc.weightx = 1.0;
-		//gbc.weighty = 0.1;
-		
-		gbc.gridx = 0;
-		gbc.gridy = 0;
 		logo.setLayout(new GridLayout(1,1));
 		logo.setBackground(Color.white);
-		logo.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		bckgrnd.add(logo, gbc);
+		logo.setPreferredSize(new Dimension(source.blWidth1, source.blHeight1));
+		top.add(logo);
+		top.add(korisnik);
+		prozor.add(top, BorderLayout.PAGE_START);
 		
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		ulist.setLayout(new GridLayout(1,1));
-		ulist.setBackground(Color.white);
-		ulist.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		bckgrnd.add(ulist, gbc);
-		
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		lek.setLayout(new GridLayout(1,1));
-		lek.setBackground(Color.white);
-		lek.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		bckgrnd.add(lek, gbc);
-		
-		gbc.gridx = 0;
-		gbc.gridy = 3;
-		izv.setLayout(new GridLayout(1,1));
-		izv.setBackground(Color.white);
-		izv.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		bckgrnd.add(izv, gbc);
-		
-		gbc.gridx = 0;
-		gbc.gridy = 4;
-		praznoP1.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		bckgrnd.add(praznoP1, gbc);
-		
-		gbc.gridx = 0;
-		gbc.gridy = 5;
-		praznoP2.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		bckgrnd.add(praznoP2, gbc);
-		
-
-		gbc.gridx = 1;
-		gbc.gridy = 4;
-		gbc.gridwidth = 1;
-		gbc.gridheight = 1;
-		bckgrnd.add(prazan1, gbc);
-		//prazan1.setPreferredSize(new Dimension(500, source.blHeight));
-		
-		gbc.gridx = 1;
-		gbc.gridy = 5;
-		//gbc.gridwidth = 1;
-		bckgrnd.add(prazan2, gbc);
-		prazan2.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		
-		gbc.gridx = 3;
-		gbc.gridy = 5;
-		sam.setLayout(new GridLayout(1,1));
-		sam.setBackground(Color.white);
-		sam.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		bckgrnd.add(sam, gbc);
-		prazan3.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		
-		gbc.gridx = 4;
-		gbc.gridy = 5;
-		bckgrnd.add(prazan4, gbc);
-		prazan4.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		
-		gbc.gridx = 5;
-		gbc.gridy = 5;
-		bckgrnd.add(prazan5, gbc);
-		prazan5.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		
-		gbc.gridx = 6;
-		gbc.gridy = 5;
-		bckgrnd.add(prazan6, gbc);
-		prazan6.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		
-		gbc.gridx = 7;
-		gbc.gridy = 5;
-		bckgrnd.add(prazan7, gbc);
-		prazan7.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		
-		gbc.gridx = 8;
-		gbc.gridy = 5;
-		bckgrnd.add(prazan8, gbc);
-		prazan8.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		
-		gbc.gridx = 9;
-		gbc.gridy = 5;
-		bckgrnd.add(prazan9, gbc);
-		prazan9.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
-		
-		gbc.gridx = 10;
-		gbc.gridy = 5;
-		bckgrnd.add(prazan10, gbc);
-		prazan10.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
+		ikone.setPreferredSize(new Dimension(source.blWidth, source.winHeight));
+		ikone.setLayout(new BoxLayout(ikone, BoxLayout.Y_AXIS));
+		ikone.setOpaque(false);
+		ulist.setOpaque(false);
+		lek.setOpaque(false);
+		izv.setOpaque(false);
+		dno.setPreferredSize(new Dimension(source.blWidth, source.blHeight*2));
+		dno.setOpaque(false);
+		dno.setLayout(new BorderLayout());
+		ctrl.setOpaque(false);
+		ctrl.setLayout(new BoxLayout(ctrl, BoxLayout.Y_AXIS));
+		ctrl.add(prazan5);
+		ctrl.add(prazan6);
+		dno.add(ctrl, BorderLayout.PAGE_END);
+		ikone.add(ulist);
+		ikone.add(lek);
+		ikone.add(izv);
+		ikone.add(dno);
+		prozor.add(ikone,BorderLayout.LINE_START);
 		
 		prozor.pack();
 		prozor.setLocationRelativeTo(null);

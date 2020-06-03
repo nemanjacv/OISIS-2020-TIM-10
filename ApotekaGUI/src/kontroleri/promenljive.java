@@ -34,12 +34,12 @@ public class promenljive {
 	public int iWidth = (int) (Math.round(winHeight * 0.15));
 	
 	//velicina dugmeta za logo manji
-	public int blHeight1 = (int) (Math.round(winHeight * 0.05));
-	public int blWidth1 = (int) (Math.round(winWidth * 0.036));
+	public int blHeight1 = (int) (Math.round(winHeight * 0.15));
+	public int blWidth1 = (int) (Math.round(winWidth * 0.09));
 	
 	//block
-	public int blHeight = (int) (Math.round(screenHeight * 0.083));
-	public int blnWidth = (int) (Math.round(screenWidth * 0.05));
+	public int blHeight = (int) (Math.round(screenHeight * 0.07));
+	public int blWidth = (int) (Math.round(screenWidth * 0.048));
 
     public int source1 = 1;
 
