@@ -59,30 +59,33 @@ public class Admin {
 		
 		GridBagConstraints gbc =new GridBagConstraints();
 		gbc.fill= GridBagConstraints.BOTH;
-		gbc.weightx = 1.0;
-		gbc.weighty = 1.0;
+		//gbc.weightx = 1.0;
+		//gbc.weighty = 0.1;
 		
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		logo.setLayout(new GridLayout(1,1));
 		logo.setBackground(Color.white);
+		logo.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
 		bckgrnd.add(logo, gbc);
-		
-		//gbc.gridx = 1;
-		//gbc.gridy = 0;
-		//gbc.gridwidth = 2;
-		//bckgrnd.add(korisnik,gbc);
 		
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		ulist.setLayout(new GridLayout(1,1));
 		ulist.setBackground(Color.white);
+		ulist.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
 		bckgrnd.add(ulist, gbc);
+		
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		bckgrnd.add(prazan1, gbc);
+		prazan1.setPreferredSize(new Dimension(source.blnWidth, source.blHeight));
 		
 		gbc.gridx = 1;
 		gbc.gridy = 2;
 		bckgrnd.add(prazan22, gbc);
-
+		
 		gbc.gridx = 3;
 		gbc.gridy = 2;
 		bckgrnd.add(prazan3, gbc);
@@ -100,19 +103,19 @@ public class Admin {
 		bckgrnd.add(prazan6, gbc);
 		
 		gbc.gridx = 7;
-		gbc.gridy = 0;
+		gbc.gridy = 5;
 		bckgrnd.add(prazan7, gbc);
 		
 		gbc.gridx = 8;
-		gbc.gridy = 0;
+		gbc.gridy = 5;
 		bckgrnd.add(prazan8, gbc);
 		
 		gbc.gridx = 9;
-		gbc.gridy = 0;
+		gbc.gridy = 5;
 		bckgrnd.add(prazan9, gbc);
 		
 		gbc.gridx = 10;
-		gbc.gridy = 0;
+		gbc.gridy = 5;
 		bckgrnd.add(prazan10, gbc);	
 		
 		prozor.pack();
