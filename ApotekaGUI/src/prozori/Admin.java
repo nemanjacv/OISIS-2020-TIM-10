@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -56,7 +57,8 @@ public class Admin {
 		
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		//logo.setBackground(Color.white);
+		logo.setLayout(new GridLayout(1,1));
+		logo.setBackground(Color.white);
 		bckgrnd.add(logo, gbc);
 		
 		gbc.gridx = 1;
