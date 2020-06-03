@@ -1,6 +1,8 @@
 package prozori;
 
-import prikaz.Logo;
+import prikaz.*;
+
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -17,10 +19,7 @@ import kontroleri.promenljive;
 public class Admin {
 
 	JFrame prozor = new JFrame();
-	JPanel regular = new JPanel();
 	promenljive source = new promenljive();
-	JLabel prazno = new JLabel("1");
-	JLabel logo2 = new Logo();
 	
 	JButton prazan1 = new JButton("1");
 	JButton prazan2 = new JButton("2");
@@ -33,6 +32,8 @@ public class Admin {
 	JButton prazan9 = new JButton("9");
 	JButton prazan10 = new JButton("10");
 	JButton prazan11 = new JButton("11");
+	
+	JPanel logo = new Logo();
 	
 	ImageIcon slika1 = new ImageIcon("img/bckgrnd.png");
 	Image pozadina = slika1.getImage().getScaledInstance( source.winWidth, source.winHeight, Image.SCALE_SMOOTH);
@@ -55,8 +56,8 @@ public class Admin {
 		
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		prazno.add(logo2);
-		bckgrnd.add(prazno, gbc);
+		//logo.setBackground(Color.white);
+		bckgrnd.add(logo, gbc);
 		
 		gbc.gridx = 1;
 		gbc.gridy = 1;
