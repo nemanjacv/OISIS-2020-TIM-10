@@ -38,7 +38,7 @@ public class promenljive {
 	public int blWidth1 = (int) (Math.round(winWidth * 0.036));
 	
 	//block
-	public int blHeight = (int) (Math.round(screenHeight * 0.09));
+	public int blHeight = (int) (Math.round(screenHeight * 0.083));
 	public int blnWidth = (int) (Math.round(screenWidth * 0.05));
 
     public int source1 = 1;
