@@ -17,8 +17,7 @@ import prozori.Admin;
 
 public class UserList extends JPanel  {
 	
-	JPanel panel = new UserListWin();
-	JButton prazan55 = new JButton("565");
+	static JPanel panel = new UserListWin();
 	private static final long serialVersionUID = -958450762788196651L;
 	promenljive source = new promenljive();
 	public UserList()
@@ -43,6 +42,8 @@ public class UserList extends JPanel  {
 				@Override
 				public void run() {
 					Admin.prozor.add(panel, BorderLayout.CENTER);
+					panel.setVisible(true);
+					Admin.wlcm.setVisible(false);
 					Admin.prozor.validate();
                     Admin.prozor.repaint();
 					

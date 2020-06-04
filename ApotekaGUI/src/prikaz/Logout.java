@@ -10,13 +10,15 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import prozori.Admin;
+import prozori.Apotekar;
+import prozori.Lekar;
 import prozori.LoginWin;
 
 public class Logout extends JPanel {
 	
 
 	private static final long serialVersionUID = -4813329911065574369L;
-	JButton prazan5 = new JButton("5");
+	JButton home = new JButton("5");
 	public static JButton logout = new JButton("Izloguj se");
 	
 	public Logout() 
@@ -34,10 +36,29 @@ public class Logout extends JPanel {
 				LoginWin login = new LoginWin();
 				login.setVisible(true);
 				Admin.prozor.setVisible(false);
+				Admin.wlcm.setVisible(true);
+				Lekar.prozor.setVisible(false);
+				Lekar.wlcm.setVisible(true);
+				Apotekar.prozor.setVisible(false);
+				Apotekar.wlcm.setVisible(true);
+				UserList.panel.setVisible(false);
 				
 			}
 		});
-		add(prazan5);
+		
+		home.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Admin.wlcm.setVisible(true);
+				Apotekar.wlcm.setVisible(true);
+				Lekar.wlcm.setVisible(true);
+				UserList.panel.setVisible(false);
+			}
+		});
+		
+		add(home);
 		add(logout);
 	}
 }

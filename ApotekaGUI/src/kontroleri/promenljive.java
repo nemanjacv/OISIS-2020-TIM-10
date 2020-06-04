@@ -18,8 +18,8 @@ public class promenljive {
 	int bWidth1 = (int) (Math.round(winWidth * 0.25));
 	
 	//velicina polja
-	int fHeight1 = (int) (Math.round(winHeight * 0.08));
-	int fWidth1 = (int) (Math.round(winWidth * 0.20));
+	public int fHeight1 = (int) (Math.round(winHeight * 0.08));
+	public int fWidth1 = (int) (Math.round(winWidth * 0.20));
 	
 	//velicina logoa
 	public int lHeight = (int) (Math.round(winHeight * 0.32));

@@ -19,22 +19,19 @@ import javax.swing.border.EmptyBorder;
 
 import kontroleri.promenljive;
 
-public class Admin {
+public class Lekar {
 
 	public static JFrame prozor = new JFrame();
 	promenljive source = new promenljive();
 	
-	JLabel korisnik = new JLabel("Admin");
+	JLabel korisnik = new JLabel("Lekar");
 	public JLabel wlcm1 = new JLabel("Dobrodosli");
 	public static JPanel wlcm = new JPanel();
 	
 	JPanel logo = new Logo();
-	JPanel ulist = new UserList();
 	JPanel lek = new Lekovi();
-	JPanel izv = new Izvestaj();
 	JPanel dno = new JPanel();
 	JPanel ctrl = new prikaz.Logout();
-	JPanel dodaj = new prikaz.AddUser();
 	
 	JPanel top = new JPanel();
 	JPanel topIco = new Dugmad();
@@ -45,7 +42,7 @@ public class Admin {
 	Image pozadina = slika1.getImage().getScaledInstance( source.winWidth, source.winHeight, Image.SCALE_SMOOTH);
 	JLabel bckgrnd = new JLabel( new ImageIcon(pozadina, slika1.getDescription()) );
 	
-	public Admin()
+	public Lekar()
 	{
 		prozor.setUndecorated(true);
 		prozor.setPreferredSize(new Dimension(source.winWidth, source.winHeight));
@@ -83,10 +80,7 @@ public class Admin {
 		ikone.setPreferredSize(new Dimension(source.blWidth, source.winHeight));
 		ikone.setLayout(new BoxLayout(ikone, BoxLayout.Y_AXIS));
 		ikone.setOpaque(false);
-		ulist.setOpaque(false);
 		lek.setOpaque(false);
-		izv.setOpaque(false);
-		dodaj.setOpaque(false);
 		dno.setPreferredSize(new Dimension(source.blWidth, source.blHeight*2));
 		dno.setOpaque(false);
 		dno.setLayout(new BorderLayout());
@@ -94,10 +88,7 @@ public class Admin {
 		ctrl.setLayout(new BoxLayout(ctrl, BoxLayout.Y_AXIS));
 
 		dno.add(ctrl, BorderLayout.PAGE_END);
-		ikone.add(ulist);
 		ikone.add(lek);
-		ikone.add(dodaj);
-		ikone.add(izv);
 		ikone.add(dno);
 		prozor.add(ikone,BorderLayout.LINE_START);
 		

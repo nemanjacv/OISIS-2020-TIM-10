@@ -202,8 +202,10 @@ public	LoginWin()
 				
 				if (user.contains("admin") && pass.contains("admin"))
 				{
-					Admin adminwin = new Admin();
-					adminwin.setVisible(true);
+					//Admin.prozor.setVisible(true);
+					//frame.setVisible(false);
+					Admin adminProz = new Admin();
+					adminProz.setVisible(true);
 					frame.setVisible(false);
 				}
 				
@@ -218,8 +220,11 @@ public	LoginWin()
 					    	String line2 = scannerL.nextLine();
 					    	if (user.contains(line) && pass.contains(line2))
 							{
-					    		System.out.print("u kno dis shi");
-					    		//scannerL.close();
+					    		//Lekar.prozor.setVisible(true);
+					    		//frame.setVisible(false);
+					    		Lekar lekProz = new Lekar();
+								lekProz.setVisible(true);
+								frame.setVisible(false);
 							}
 					    	
 					    }
@@ -236,8 +241,11 @@ public	LoginWin()
 					    	String line2 = scannerA.nextLine();
 					    	if (user.contains(line) && pass.contains(line2))
 							{
-					    		System.out.print("u ril kno dis shi");
-					    		//scannerA.close();
+					    		//Apotekar.prozor.setVisible(true);
+					    		//frame.setVisible(false);
+					    		Apotekar apoteProz = new Apotekar();
+								apoteProz.setVisible(true);
+								frame.setVisible(false);
 							}
 					    	
 					    }

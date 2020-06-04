@@ -12,14 +12,17 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import kontroleri.promenljive;
+import paneli.IzvestajWin;
 import prozori.Admin;
 
 public class Izvestaj extends JPanel {
-	JButton prazan55 = new JButton("565");
+	
+	static JPanel panel = new IzvestajWin();
 	private static final long serialVersionUID = -958450762788196651L;
 	promenljive source = new promenljive();
 	public Izvestaj()
 	{
+	panel.setOpaque(false);
 	ImageIcon logoico = new ImageIcon("img/i2.png");
 	Image image3 = logoico.getImage().getScaledInstance( source.iWidth, source.iHeight , Image.SCALE_SMOOTH);
 	JButton logo = new JButton("");
@@ -38,10 +41,11 @@ public class Izvestaj extends JPanel {
 				
 				@Override
 				public void run() {
-					Admin.prozor.add(prazan55, BorderLayout.CENTER);
+					Admin.prozor.add(panel, BorderLayout.CENTER);
+					panel.setVisible(true);
+					Admin.wlcm.setVisible(false);
 					Admin.prozor.validate();
                     Admin.prozor.repaint();
-					
 				}
 			});
 			
