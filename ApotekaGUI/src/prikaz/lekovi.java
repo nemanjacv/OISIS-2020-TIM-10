@@ -1,15 +1,21 @@
 package prikaz;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import kontroleri.promenljive;
+import prozori.Admin;
 
 public class lekovi extends JPanel {
+	JButton prazan55 = new JButton("565");
 	private static final long serialVersionUID = -958450762788196651L;
 	promenljive source = new promenljive();
 	public lekovi()
@@ -24,7 +30,24 @@ public class lekovi extends JPanel {
 	logo.setBorder(null);
 	logo.setFocusable(false);
 	logo.setContentAreaFilled(false);
+	logo.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
 			
+			SwingUtilities.invokeLater(new Runnable() {
+				
+				@Override
+				public void run() {
+					Admin.prozor.add(prazan55, BorderLayout.CENTER);
+					Admin.prozor.validate();
+                    Admin.prozor.repaint();
+					
+				}
+			});
+			
+		}
+	});	
 	add(logo);
 	}
 
