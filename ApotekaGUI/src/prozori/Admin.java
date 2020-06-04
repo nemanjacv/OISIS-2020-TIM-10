@@ -31,7 +31,7 @@ public class Admin {
 	promenljive source = new promenljive();
 	
 	JLabel korisnik = new JLabel("Admin");
-	//JButton logout = new JButton("Izloguj se");
+	JButton logout = new JButton("Izloguj se");
 	//Box logout2 = new prikaz.logout();
 	
 	JButton prazan1 = new JButton("1");
@@ -79,7 +79,7 @@ public class Admin {
 		top.setPreferredSize(new Dimension(source.winWidth,source.blHeight));
 		topIco.setOpaque(false);
 		topIco.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		/*
+		
 		logout.setFont(new Font("Calibri", Font.PLAIN, 15));
 		logout.setForeground(new Color(0x008000));
 		logout.setBorderPainted(false);
@@ -96,7 +96,7 @@ public class Admin {
 				
 			}
 		});
-		*/
+		
 		korisnik.setFont(new Font("Calibri", Font.PLAIN, 40));
 		korisnik.setForeground( Color.white);
 		EmptyBorder eBorder = new EmptyBorder(0, 20, 0, 0);
@@ -123,7 +123,7 @@ public class Admin {
 		ctrl.setOpaque(false);
 		ctrl.setLayout(new BoxLayout(ctrl, BoxLayout.Y_AXIS));
 		ctrl.add(prazan5);
-		ctrl.add(prikaz.logout.logout);
+		ctrl.add(logout);
 		dno.add(ctrl, BorderLayout.PAGE_END);
 		ikone.add(ulist);
 		ikone.add(lek);
