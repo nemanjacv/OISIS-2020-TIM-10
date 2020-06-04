@@ -8,13 +8,13 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -27,11 +27,12 @@ import kontroleri.promenljive;
 
 public class Admin {
 
-	public JFrame prozor = new JFrame();
+	public static JFrame prozor = new JFrame();
 	promenljive source = new promenljive();
 	
 	JLabel korisnik = new JLabel("Admin");
-	JButton logout = new JButton("Izloguj se");
+	//JButton logout = new JButton("Izloguj se");
+	//Box logout2 = new prikaz.logout();
 	
 	JButton prazan1 = new JButton("1");
 	JButton prazan2 = new JButton("2");
@@ -53,7 +54,7 @@ public class Admin {
 	JPanel ctrl = new JPanel();
 	
 	JPanel top = new JPanel();
-	JPanel topIco = new JPanel();
+	JPanel topIco = new dugmad();
 	JPanel topLft = new JPanel();
 	JPanel ikone = new JPanel();
 	
@@ -64,18 +65,13 @@ public class Admin {
 	Image pozadina = slika1.getImage().getScaledInstance( source.winWidth, source.winHeight, Image.SCALE_SMOOTH);
 	JLabel bckgrnd = new JLabel( new ImageIcon(pozadina, slika1.getDescription()) );
 	
-	JButton b1=new JButton("");
-	JButton b2=new JButton("");
-	
 	public Admin()
 	{
-		
 		prozor.setUndecorated(true);
 		prozor.setPreferredSize(new Dimension(source.winWidth, source.winHeight));
 		bckgrnd.setLayout(new BorderLayout());
 		prozor.setContentPane(bckgrnd);
-		
-		//top.setPreferredSize(new Dimension(source.winWidth,source.blHeight));
+
 		topLft.setLayout(new FlowLayout(FlowLayout.LEFT));
 		topLft.setOpaque(false);
 		top.setOpaque(false);
@@ -83,45 +79,7 @@ public class Admin {
 		top.setPreferredSize(new Dimension(source.winWidth,source.blHeight));
 		topIco.setOpaque(false);
 		topIco.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		
-		b1.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				 System.exit(0);
-			}
-		});
-		b2.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				prozor.setState(Frame.ICONIFIED);
-				
-			}
-		});
-		
-		b1.setPreferredSize(new Dimension(30, 30));
-	    ImageIcon btnn1 = new ImageIcon("img/2.png");
-		Image butn1 = btnn1.getImage().getScaledInstance( 30, 30 , Image.SCALE_SMOOTH);
-		btnn1 = new ImageIcon(butn1, btnn1.getDescription());
-		
-		b1.setIcon(btnn1);
-		b1.setBorder(null);
-		b1.setFocusable(false);
-		b1.setContentAreaFilled(false);
-		b1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
-		b2.setPreferredSize(new Dimension(30, 30));
-	    ImageIcon btnn2 = new ImageIcon("img/1.png");
-		Image butn2 = btnn2.getImage().getScaledInstance( 30, 30 , Image.SCALE_SMOOTH);
-		btnn2 = new ImageIcon(butn2, btnn2.getDescription());
-		
-		b2.setIcon(btnn2);
-		b2.setBorder(null);
-		b2.setFocusable(false);
-		b2.setContentAreaFilled(false);
-		b2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
+		/*
 		logout.setFont(new Font("Calibri", Font.PLAIN, 15));
 		logout.setForeground(new Color(0x008000));
 		logout.setBorderPainted(false);
@@ -138,19 +96,17 @@ public class Admin {
 				
 			}
 		});
-		
+		*/
 		korisnik.setFont(new Font("Calibri", Font.PLAIN, 40));
 		korisnik.setForeground( Color.white);
 		EmptyBorder eBorder = new EmptyBorder(0, 20, 0, 0);
 	    korisnik.setBorder(BorderFactory.createCompoundBorder(null, eBorder));
-		
+	    
 		logo.setLayout(new GridLayout(1,1));
 		logo.setBackground(Color.white);
 		logo.setPreferredSize(new Dimension(source.blWidth1, source.blHeight1));
 		topLft.add(logo);
 		topLft.add(korisnik);
-		topIco.add(b2);
-		topIco.add(b1);
 		top.add(topLft, BorderLayout.LINE_START);
 		top.add(topIco, BorderLayout.LINE_END);
 		prozor.add(top, BorderLayout.PAGE_START);
@@ -167,13 +123,16 @@ public class Admin {
 		ctrl.setOpaque(false);
 		ctrl.setLayout(new BoxLayout(ctrl, BoxLayout.Y_AXIS));
 		ctrl.add(prazan5);
-		ctrl.add(logout);
+		ctrl.add(prikaz.logout.logout);
 		dno.add(ctrl, BorderLayout.PAGE_END);
 		ikone.add(ulist);
 		ikone.add(lek);
 		ikone.add(izv);
 		ikone.add(dno);
 		prozor.add(ikone,BorderLayout.LINE_START);
+		
+		
+		//prozor.add(prazan5, BorderLayout.CENTER);
 		
 		prozor.pack();
 		prozor.setLocationRelativeTo(null);

@@ -12,6 +12,7 @@ import kontroleri.promenljive;
 public class AddUser extends JPanel {
 	private static final long serialVersionUID = -958450762788196651L;
 	promenljive source = new promenljive();
+	
 	public AddUser()
 	{
 	ImageIcon logoico = new ImageIcon("img/i4.png");
