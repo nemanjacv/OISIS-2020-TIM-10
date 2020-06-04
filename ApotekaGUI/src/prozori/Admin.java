@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -32,7 +31,6 @@ public class Admin {
 	
 	JLabel korisnik = new JLabel("Admin");
 	JButton logout = new JButton("Izloguj se");
-	//Box logout2 = new prikaz.logout();
 	
 	JButton prazan1 = new JButton("1");
 	JButton prazan2 = new JButton("2");
@@ -51,7 +49,7 @@ public class Admin {
 	JPanel lek = new lekovi();
 	JPanel izv = new Izvestaj();
 	JPanel dno = new JPanel();
-	JPanel ctrl = new JPanel();
+	JPanel ctrl = new prikaz.logout();
 	
 	JPanel top = new JPanel();
 	JPanel topIco = new dugmad();
@@ -80,29 +78,10 @@ public class Admin {
 		topIco.setOpaque(false);
 		topIco.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		
-		logout.setFont(new Font("Calibri", Font.PLAIN, 15));
-		logout.setForeground(new Color(0x008000));
-		logout.setBorderPainted(false);
-		logout.setFocusable(false);
-		logout.setContentAreaFilled(false);
-		logout.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		logout.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				LoginWin login = new LoginWin();
-				login.setVisible(true);
-				prozor.setVisible(false);
-				
-			}
-		});
-		
 		korisnik.setFont(new Font("Calibri", Font.PLAIN, 40));
 		korisnik.setForeground( Color.white);
 		EmptyBorder eBorder = new EmptyBorder(0, 20, 0, 0);
 	    korisnik.setBorder(BorderFactory.createCompoundBorder(null, eBorder));
-	    
-		logo.setLayout(new GridLayout(1,1));
 		logo.setBackground(Color.white);
 		logo.setPreferredSize(new Dimension(source.blWidth1, source.blHeight1));
 		topLft.add(logo);
@@ -122,17 +101,13 @@ public class Admin {
 		dno.setLayout(new BorderLayout());
 		ctrl.setOpaque(false);
 		ctrl.setLayout(new BoxLayout(ctrl, BoxLayout.Y_AXIS));
-		ctrl.add(prazan5);
-		ctrl.add(logout);
+
 		dno.add(ctrl, BorderLayout.PAGE_END);
 		ikone.add(ulist);
 		ikone.add(lek);
 		ikone.add(izv);
 		ikone.add(dno);
 		prozor.add(ikone,BorderLayout.LINE_START);
-		
-		
-		//prozor.add(prazan5, BorderLayout.CENTER);
 		
 		prozor.pack();
 		prozor.setLocationRelativeTo(null);
