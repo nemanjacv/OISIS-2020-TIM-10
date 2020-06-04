@@ -9,15 +9,14 @@ import javax.swing.JPanel;
 
 import kontroleri.promenljive;
 
-public class recept extends JPanel  {
-	
+public class Shop extends JPanel {
+
 	private static final long serialVersionUID = -958450762788196651L;
 	promenljive source = new promenljive();
-	public recept()
+	public Shop()
 	{
-	
-	ImageIcon logoico = new ImageIcon("img/i6.png");
-	Image image3 = logoico.getImage().getScaledInstance( source.iWidth, source.iHeight , Image.SCALE_SMOOTH);
+	ImageIcon logoico = new ImageIcon("img/i5.png");
+	Image image3 = logoico.getImage().getScaledInstance( source.lWidth1, source.lHeight1 , Image.SCALE_SMOOTH);
 	JButton logo = new JButton("");
 	logoico = new ImageIcon(image3, logoico.getDescription());
 	logo.setPreferredSize(new Dimension(source.blWidth1,source.blHeight1));
@@ -28,5 +27,4 @@ public class recept extends JPanel  {
 			
 	add(logo);
 	}
-
 }

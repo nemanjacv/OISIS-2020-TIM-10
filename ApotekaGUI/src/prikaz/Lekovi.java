@@ -12,19 +12,16 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import kontroleri.promenljive;
-import paneli.UserListWin;
 import prozori.Admin;
 
-public class UserList extends JPanel  {
-	
-	JPanel panel = new UserListWin();
+public class Lekovi extends JPanel {
 	JButton prazan55 = new JButton("565");
 	private static final long serialVersionUID = -958450762788196651L;
 	promenljive source = new promenljive();
-	public UserList()
+	public Lekovi()
 	{
-	panel.setOpaque(false);
-	ImageIcon logoico = new ImageIcon("img/i1.png");
+	
+	ImageIcon logoico = new ImageIcon("img/i3.png");
 	Image image3 = logoico.getImage().getScaledInstance( source.iWidth, source.iHeight , Image.SCALE_SMOOTH);
 	JButton logo = new JButton("");
 	logoico = new ImageIcon(image3, logoico.getDescription());
@@ -34,7 +31,7 @@ public class UserList extends JPanel  {
 	logo.setFocusable(false);
 	logo.setContentAreaFilled(false);
 	logo.addActionListener(new ActionListener() {
-
+		
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
@@ -42,7 +39,7 @@ public class UserList extends JPanel  {
 				
 				@Override
 				public void run() {
-					Admin.prozor.add(panel, BorderLayout.CENTER);
+					Admin.prozor.add(prazan55, BorderLayout.CENTER);
 					Admin.prozor.validate();
                     Admin.prozor.repaint();
 					
@@ -50,8 +47,7 @@ public class UserList extends JPanel  {
 			});
 			
 		}
-	});
-			
+	});	
 	add(logo);
 	}
 

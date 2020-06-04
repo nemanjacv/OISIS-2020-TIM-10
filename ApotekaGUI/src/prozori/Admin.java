@@ -4,14 +4,10 @@ import prikaz.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -46,13 +42,13 @@ public class Admin {
 	
 	JPanel logo = new Logo();
 	JPanel ulist = new UserList();
-	JPanel lek = new lekovi();
+	JPanel lek = new Lekovi();
 	JPanel izv = new Izvestaj();
 	JPanel dno = new JPanel();
-	JPanel ctrl = new prikaz.logout();
+	JPanel ctrl = new prikaz.Logout();
 	
 	JPanel top = new JPanel();
-	JPanel topIco = new dugmad();
+	JPanel topIco = new Dugmad();
 	JPanel topLft = new JPanel();
 	JPanel ikone = new JPanel();
 	

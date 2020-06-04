@@ -9,10 +9,10 @@ import javax.swing.JPanel;
 
 import kontroleri.promenljive;
 
-public class korpa extends JPanel {
+public class Korpa extends JPanel {
 	private static final long serialVersionUID = -958450762788196651L;
 	promenljive source = new promenljive();
-	public korpa()
+	public Korpa()
 	{
 	
 	ImageIcon logoico = new ImageIcon("img/i7.png");

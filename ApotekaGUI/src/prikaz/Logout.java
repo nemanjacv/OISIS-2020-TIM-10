@@ -12,14 +12,14 @@ import javax.swing.JPanel;
 import prozori.Admin;
 import prozori.LoginWin;
 
-public class logout extends JPanel {
+public class Logout extends JPanel {
 	
 
 	private static final long serialVersionUID = -4813329911065574369L;
 	JButton prazan5 = new JButton("5");
 	public static JButton logout = new JButton("Izloguj se");
 	
-	public logout() 
+	public Logout() 
 	{
 		logout.setFont(new Font("Calibri", Font.PLAIN, 15));
 		logout.setForeground(new Color(0x008000));
