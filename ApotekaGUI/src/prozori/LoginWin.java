@@ -50,7 +50,6 @@ public class LoginWin implements ActionListener{
 	int lWidth1 = (int) (Math.round(winHeight * 0.36));
 	JFrame frame = new JFrame();
 	
-	
 public	LoginWin()
 	{      
 		frame.setPreferredSize(new Dimension(winWidth, winHeight));

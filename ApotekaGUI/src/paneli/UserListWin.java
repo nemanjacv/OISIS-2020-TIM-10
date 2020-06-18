@@ -32,7 +32,7 @@ public class UserListWin extends JPanel{
 	JPanel users = new JPanel();
 	JPanel search = new JPanel();
 	JTextField srch = new JTextField("Polje za pretragu");
-	ImageIcon field1 = new ImageIcon("img/field.png");
+	ImageIcon field1 = new ImageIcon("img/field2.png");
 	Image image2 = field1.getImage().getScaledInstance( source.fWidth1, source.fHeight1 , Image.SCALE_SMOOTH);
 	JLabel srchL = new JLabel( new ImageIcon(image2, field1.getDescription()) );
 	
