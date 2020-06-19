@@ -18,7 +18,7 @@ public class IzvestajWin extends JPanel{
 	private static final long serialVersionUID = -1814873711205869180L;
 	promenljive source = new promenljive();
 	
-	JPanel panel = new JPanel();
+	public static JPanel panel = new JPanel();
 	JPanel top = new JPanel();
 	JLabel korisnici = new JLabel("Izvestaj");
 	

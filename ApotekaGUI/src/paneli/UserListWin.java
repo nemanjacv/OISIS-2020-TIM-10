@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import kontroleri.promenljive;
+import prikaz.KorisnickaTabela;
 
 public class UserListWin extends JPanel{
 	
@@ -37,13 +39,16 @@ public class UserListWin extends JPanel{
 	JLabel srchL = new JLabel( new ImageIcon(image2, field1.getDescription()) );
 	
 	JPanel tabela = new JPanel();
+	JPanel table = new KorisnickaTabela();
 	
 	JPanel radio = new JPanel();
 	JLabel sort = new JLabel("Sortiraj po:");
 	JRadioButton ime = new JRadioButton("Ime");
 	JRadioButton prezime = new JRadioButton("Prezime");
 	JRadioButton tip = new JRadioButton("Tip korisnika");
-	
+	ButtonGroup radioB = new ButtonGroup();
+	ImageIcon r1 = new ImageIcon("img/r1.png");
+	ImageIcon r2 = new ImageIcon("img/r2.png");
 	
 	public UserListWin()
 	{	
@@ -90,23 +95,44 @@ public class UserListWin extends JPanel{
 	    ime.setFont(new Font("Calibri", Font.PLAIN, 15));
 		ime.setForeground(Color.white);
 		ime.setOpaque(false);
+		ime.setIcon(r1);
+		ime.setSelectedIcon(r2);
+		ime.setFocusPainted(false);
 		prezime.setFont(new Font("Calibri", Font.PLAIN, 15));
 		prezime.setForeground(Color.white);
 		prezime.setOpaque(false);
+		prezime.setIcon(r1);
+		prezime.setSelectedIcon(r2);
+		prezime.setFocusPainted(false);
 		tip.setFont(new Font("Calibri", Font.PLAIN, 15));
 		tip.setForeground(Color.white);
 		tip.setOpaque(false);
+		tip.setIcon(r1);
+		tip.setSelectedIcon(r2);
+		tip.setFocusPainted(false);
 	    
 	    radio.setLayout(new BoxLayout(radio,BoxLayout.Y_AXIS));
 	    radio.setOpaque(false);
 	    radio.setPreferredSize(new Dimension(source.winWidth/4,source.winHeight/3));
 	    radio.add(sort);
+	    radioB.add(ime);
+	    radioB.add(prezime);
+	    radioB.add(tip);
 	    radio.add(ime);
 	    radio.add(prezime);
 	    radio.add(tip);
 	    
+	    EmptyBorder eBorder3 = new EmptyBorder(30, 10, 0, 0);
+	    tabela.setBorder(BorderFactory.createCompoundBorder(null, eBorder3));
+	    tabela.setLayout(new FlowLayout(FlowLayout.LEFT));
+	    tabela.setOpaque(false);
+	    
+	    table.setOpaque(false);
+	    tabela.add(table);
+	    
 	    users.add(search, BorderLayout.PAGE_START);
 	    users.add(radio, BorderLayout.EAST);
+	    users.add(tabela, BorderLayout.CENTER);
 
 		panel.add(top, BorderLayout.PAGE_START);
 		panel.add(users, BorderLayout.CENTER);

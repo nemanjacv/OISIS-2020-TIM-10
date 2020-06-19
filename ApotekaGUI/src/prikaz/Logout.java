@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import paneli.IzvestajWin;
 import prozori.Admin;
 import prozori.Apotekar;
 import prozori.Lekar;
@@ -51,6 +52,7 @@ public class Logout extends JPanel {
 				Apotekar.wlcm.setVisible(true);
 				Lekar.wlcm.setVisible(true);
 				UserList.panel.setVisible(false);
+				IzvestajWin.panel.setVisible(false);
 			}
 		});
 		
