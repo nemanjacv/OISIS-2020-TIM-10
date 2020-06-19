@@ -25,7 +25,7 @@ public class Admin {
 	promenljive source = new promenljive();
 	
 	JLabel korisnik = new JLabel("Admin");
-	public JLabel wlcm1 = new JLabel("Dobrodosli");
+	static JLabel wlcm1 = new JLabel("Dobrodosli");
 	public static JPanel wlcm = new JPanel();
 	
 	JPanel logo = new Logo();
@@ -47,7 +47,6 @@ public class Admin {
 	
 	public Admin()
 	{
-		prozor.setUndecorated(true);
 		prozor.setPreferredSize(new Dimension(source.winWidth, source.winHeight));
 		bckgrnd.setLayout(new BorderLayout());
 		prozor.setContentPane(bckgrnd);
@@ -101,8 +100,9 @@ public class Admin {
 		ikone.add(dno);
 		prozor.add(ikone,BorderLayout.LINE_START);
 		
-		prozor.add(wlcm);
+		prozor.add(wlcm, BorderLayout.CENTER);
 		
+		prozor.setUndecorated(true);
 		prozor.pack();
 		prozor.setLocationRelativeTo(null);
 	    prozor.setVisible(true);

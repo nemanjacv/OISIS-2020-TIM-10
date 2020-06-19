@@ -92,7 +92,7 @@ public class Lekar {
 		ikone.add(dno);
 		prozor.add(ikone,BorderLayout.LINE_START);
 		
-		prozor.add(wlcm);
+		prozor.add(wlcm, BorderLayout.CENTER);
 		
 		prozor.pack();
 		prozor.setLocationRelativeTo(null);

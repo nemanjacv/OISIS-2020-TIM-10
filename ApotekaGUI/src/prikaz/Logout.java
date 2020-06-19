@@ -35,13 +35,9 @@ public class Logout extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				LoginWin login = new LoginWin();
 				login.setVisible(true);
-				Admin.prozor.setVisible(false);
-				Admin.wlcm.setVisible(true);
-				Lekar.prozor.setVisible(false);
-				Lekar.wlcm.setVisible(true);
-				Apotekar.prozor.setVisible(false);
-				Apotekar.wlcm.setVisible(true);
-				UserList.panel.setVisible(false);
+				Admin.prozor.dispose();
+				Lekar.prozor.dispose();
+				Apotekar.prozor.dispose();
 				
 			}
 		});
