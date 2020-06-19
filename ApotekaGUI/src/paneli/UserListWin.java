@@ -50,28 +50,28 @@ public class UserListWin extends JPanel{
 	ImageIcon r1 = new ImageIcon("img/r1.png");
 	ImageIcon r2 = new ImageIcon("img/r2.png");
 	
-	public UserListWin()
+	public UserListWin()			//ovde pocinje kod
 	{	
 		//Top bar
-		panel.setLayout(new BorderLayout());
+		panel.setLayout(new BorderLayout());	//podesen layout za panel da bude borderlayout guglajte kako radi
 		
-		korisnici.setFont(new Font("Calibri", Font.PLAIN, 20));
-		korisnici.setForeground(Color.white);
-		EmptyBorder eBorder = new EmptyBorder(5, 10, 0, 0);
-	    korisnici.setBorder(BorderFactory.createCompoundBorder(null, eBorder));
+		korisnici.setFont(new Font("Calibri", Font.PLAIN, 20));	//ovko se postavlja font za bilo sta u ovom slucaju za jlabel 
+		korisnici.setForeground(Color.white);	//menja se boja teksta na belo
+		EmptyBorder eBorder = new EmptyBorder(5, 10, 0, 0);	//praavi se prazan border ovo se stavlja oko necega cemu ga pripojimo, u ovom slucaju 5 piksela s leve str i 10 odozgo
+	    korisnici.setBorder(BorderFactory.createCompoundBorder(null, eBorder));	//dodak\je se border koji sam gore napravio na objekat
 		
 		//panel.setLayout(new BorderLayout());
-		panel.setOpaque(false);
-		top.setLayout(new FlowLayout(FlowLayout.LEFT));
+		panel.setOpaque(false);	//pomocu ove funkcije se stavlja da pozadina objekta bilo kog label dugme ne postoji tj bude prozirna
+		top.setLayout(new FlowLayout(FlowLayout.LEFT));	//za jpanel da se ispisuje s leve na desnu stranu koriscen flowlayout guglajte kako radi 
 		top.setOpaque(false);
-		top.setPreferredSize(new Dimension(source.winWidth-source.blWidth,source.blHeight/2));
-		top.add(korisnici);
+		top.setPreferredSize(new Dimension(source.winWidth-source.blWidth,source.blHeight/2)); //ovako se definise staticna velicina za dosta toga 
+		top.add(korisnici); //kad napravim npr panel ovako u njega dodajem dugmad npr(objekte)
 //--------------------------------------------------------------------------------------------------
 		//Polje
-		srch.addMouseListener(new MouseAdapter(){
+		srch.addMouseListener(new MouseAdapter(){	//ovo je funkcija koja prati desavanja u ovom slucaju akciju misa
             @Override
-            public void mouseClicked(MouseEvent e){
-                srch.setText("");
+            public void mouseClicked(MouseEvent e){	//akcija je definisana ovde, klik misa
+                srch.setText("");	//kada je mis kliknut za objekat srch se postavlja tekst da bude prazan tj kad kliknem u programu na "pretraga" samo ce nestati taj tekst
             }
         });
 		
@@ -95,9 +95,9 @@ public class UserListWin extends JPanel{
 	    ime.setFont(new Font("Calibri", Font.PLAIN, 15));
 		ime.setForeground(Color.white);
 		ime.setOpaque(false);
-		ime.setIcon(r1);
-		ime.setSelectedIcon(r2);
-		ime.setFocusPainted(false);
+		ime.setIcon(r1);	//ovako se za radio dugme menja ikona pogledajte kako se konkretno za dugme menja negde drugde u principu ucitava se slika prebacuje u ikonu rez\size se radi i vraca u image 
+		ime.setSelectedIcon(r2);	//ovako se za radio dugme menja ikona kad je selektovan 
+		ime.setFocusPainted(false);	//kada je kliknuto ima kao neke tackice oko njega okvir e to ovo krije
 		prezime.setFont(new Font("Calibri", Font.PLAIN, 15));
 		prezime.setForeground(Color.white);
 		prezime.setOpaque(false);
@@ -130,12 +130,12 @@ public class UserListWin extends JPanel{
 	    table.setOpaque(false);
 	    tabela.add(table);
 	    
-	    users.add(search, BorderLayout.PAGE_START);
+	    users.add(search, BorderLayout.PAGE_START);	//kod border layouta imamo strane prozora u koje mozemo da dodajemo objekte ovako se definise gde sta ide al morate da procitate kako rade layouti da skontate postavicu link gde ima ok objasnjeno skontajte primere 
 	    users.add(radio, BorderLayout.EAST);
 	    users.add(tabela, BorderLayout.CENTER);
 
 		panel.add(top, BorderLayout.PAGE_START);
 		panel.add(users, BorderLayout.CENTER);
-		add(panel);
+		add(panel);	//ovo stavljam na kraj kako bi se panel u kojem je sve ovo dodalo dodao negde gde se zove ova klasa (zove se u admin prozoru bacite pogled kako tacno)
 	}
 }
