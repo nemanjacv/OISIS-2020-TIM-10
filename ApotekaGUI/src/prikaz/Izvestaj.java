@@ -18,7 +18,7 @@ import prozori.Admin;
 public class Izvestaj extends JPanel {
 	
 	static JPanel panel = new IzvestajWin();
-	private static final long serialVersionUID = -958450762788196651L;
+	private static final long serialVersionUID = 8669627024476681079L;
 	promenljive source = new promenljive();
 	public Izvestaj()
 	{
@@ -44,6 +44,10 @@ public class Izvestaj extends JPanel {
 					Admin.prozor.add(panel, BorderLayout.CENTER);
 					panel.setVisible(true);
 					Admin.wlcm.setVisible(false);
+					UserList.panel.setVisible(false);
+					Lekovi.panel.setVisible(false);
+					Korpa.panel.setVisible(false);
+					AddUser.panel.setVisible(false);
 					Admin.prozor.validate();
                     Admin.prozor.repaint();
 				}

@@ -12,7 +12,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import paneli.IzvestajWin;
 import prozori.Admin;
 import prozori.Apotekar;
 import prozori.Lekar;
@@ -68,7 +67,8 @@ public class Logout extends JPanel {
 				Apotekar.wlcm.setVisible(true);
 				Lekar.wlcm.setVisible(true);
 				UserList.panel.setVisible(false);
-				IzvestajWin.panel.setVisible(false);
+				Lekovi.panel.setVisible(false);
+				Izvestaj.panel.setVisible(false);
 			}
 		});
 		

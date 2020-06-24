@@ -60,7 +60,6 @@ public class UserListWin extends JPanel{
 		EmptyBorder eBorder = new EmptyBorder(5, 10, 0, 0);	//praavi se prazan border ovo se stavlja oko necega cemu ga pripojimo, u ovom slucaju 5 piksela s leve str i 10 odozgo
 	    korisnici.setBorder(BorderFactory.createCompoundBorder(null, eBorder));	//dodak\je se border koji sam gore napravio na objekat
 		
-		//panel.setLayout(new BorderLayout());
 		panel.setOpaque(false);	//pomocu ove funkcije se stavlja da pozadina objekta bilo kog label dugme ne postoji tj bude prozirna
 		top.setLayout(new FlowLayout(FlowLayout.LEFT));	//za jpanel da se ispisuje s leve na desnu stranu koriscen flowlayout guglajte kako radi 
 		top.setOpaque(false);

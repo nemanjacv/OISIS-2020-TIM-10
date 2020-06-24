@@ -13,16 +13,16 @@ import javax.swing.border.EmptyBorder;
 
 import kontroleri.promenljive;
 
-public class IzvestajWin extends JPanel{
+public class AddUserWin extends JPanel{
 	
-	private static final long serialVersionUID = -1814873711205869180L;
+	private static final long serialVersionUID = 3084282998787165875L;
 	promenljive source = new promenljive();
 	
 	public static JPanel panel = new JPanel();
 	JPanel top = new JPanel();
-	JLabel korisnici = new JLabel("Izvestaj");
+	JLabel korisnici = new JLabel("Dodaj Korisnika");
 	
-	public IzvestajWin()
+	public AddUserWin()
 	{	
 		//Top bar
 				panel.setLayout(new BorderLayout());	

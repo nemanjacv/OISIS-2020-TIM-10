@@ -15,7 +15,7 @@ import kontroleri.promenljive;
 import paneli.UserListWin;
 import prozori.Admin;
 
-public class UserList extends JPanel  {
+public class UserList extends JPanel {
 	
 	static JPanel panel = new UserListWin();
 	private static final long serialVersionUID = -958450762788196651L;
@@ -43,10 +43,13 @@ public class UserList extends JPanel  {
 				public void run() {
 					Admin.prozor.add(panel, BorderLayout.CENTER);
 					panel.setVisible(true);
+					Izvestaj.panel.setVisible(false);
+					Lekovi.panel.setVisible(false);
+					Korpa.panel.setVisible(false);
+					AddUser.panel.setVisible(false);
 					Admin.wlcm.setVisible(false);
 					Admin.prozor.validate();
                     Admin.prozor.repaint();
-					
 				}
 			});
 			
@@ -55,5 +58,4 @@ public class UserList extends JPanel  {
 			
 	add(logo);
 	}
-
 }
