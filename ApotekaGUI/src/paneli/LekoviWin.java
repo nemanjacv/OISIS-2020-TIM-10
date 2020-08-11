@@ -146,7 +146,7 @@ public class LekoviWin extends JPanel{
 		
 		od2.setFont(new Font("Calibri", Font.PLAIN, 15));
 		od2.setOpaque( false );
-		od2L.setBorder(BorderFactory.createEmptyBorder(20,10,10,10));
+		//od2L.setBorder(BorderFactory.createEmptyBorder(20,10,10,10));
 		od2L.setLayout( new BorderLayout() );
 		od2L.add(od2);
 		
@@ -155,35 +155,44 @@ public class LekoviWin extends JPanel{
 		
 		do2.setFont(new Font("Calibri", Font.PLAIN, 15));
 		do2.setOpaque( false );
-		do2L.setBorder(BorderFactory.createEmptyBorder(20,10,10,10));
+		//do2L.setBorder(BorderFactory.createEmptyBorder(20,10,10,10));
 		do2L.setLayout( new BorderLayout() );
 		do2L.add(do2);
 
 	    
 	    radio.setLayout(new BoxLayout(radio,BoxLayout.Y_AXIS));
 	    radio.setOpaque(false);
-	    radio.setPreferredSize(new Dimension(source.winWidth/4,source.winHeight/3));
-	    radio.add(sort);
+	    JPanel SortPnl = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	    SortPnl.add(sort);
+	    SortPnl.setOpaque(false);
+	    radio.add(SortPnl);
 	    radioB.add(naziv);
 	    radioB.add(proizvodjac);
-	    radio.add(proizvodjac);
-	    radio.add(naziv);
-	    radio.add(cena);
+	    JPanel ProizvodjacPnl = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	    ProizvodjacPnl.add(proizvodjac);
+	    ProizvodjacPnl.setOpaque(false);
+	    radio.add(ProizvodjacPnl);
+	    JPanel NazivPnl = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	    NazivPnl.add(naziv);
+	    NazivPnl.setOpaque(false);
+	    radio.add(NazivPnl);
+	    JPanel CenaPnl = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	    CenaPnl.add(cena);
+	    CenaPnl.setOpaque(false);
+	    radio.add(CenaPnl);
 	    
 	    rCena1.setOpaque(false);
-	    rCena1.setPreferredSize(new Dimension(source.winWidth/4,source.winHeight/3));
 	    rCena1.setLayout(new FlowLayout(FlowLayout.LEADING));
 	    rCena1.add(od);
 	    rCena1.add(od2L);
 	    radio.add(rCena1);
 	    
 	    rCena2.setOpaque(false);
-	    rCena2.setPreferredSize(new Dimension(source.winWidth/4,source.winHeight/3));
 	    rCena2.setLayout(new FlowLayout(FlowLayout.LEADING));
 	    rCena2.add(do1);
 	    rCena2.add(do2L);
 	    radio.add(rCena2);
-
+	    radio.setBorder(new EmptyBorder(0, 0, 100, 100));
 	    
 	    EmptyBorder eBorder4 = new EmptyBorder(20, 10, 0, 0);
 	    tabela.setBorder(BorderFactory.createCompoundBorder(null, eBorder4));
