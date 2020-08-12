@@ -20,6 +20,8 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
+import com.sun.security.jgss.ExtendedGSSContext;
+
 import kontroleri.promenljive;
 import prikaz.TabelaLekova;
 
