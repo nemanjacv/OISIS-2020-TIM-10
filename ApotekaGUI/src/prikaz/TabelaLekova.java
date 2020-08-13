@@ -12,7 +12,12 @@ import java.io.IOException;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.RowSorter;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Cell;
@@ -61,8 +66,13 @@ public class TabelaLekova extends JPanel{
     			data[i][3] = sh.getRow(i+1).getCell(3);
     			data[i][4] = sh.getRow(i+1).getCell(4);
     		}
+    		TableModel model = new DefaultTableModel(data, columnNames);
 
-    final JTable table = new JTable(data, columnNames);
+
+
+    final JTable table = new JTable(model);
+    RowSorter<TableModel> sorter = new TableRowSorter<TableModel>(model);
+    table.setRowSorter(sorter);
     table.setPreferredScrollableViewportSize(new Dimension(source.winWidth/2,source.winHeight/3));
     table.setFillsViewportHeight(true);
     table.setOpaque(false);
