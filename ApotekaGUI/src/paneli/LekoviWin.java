@@ -19,11 +19,13 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
-
-import com.sun.security.jgss.ExtendedGSSContext;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import kontroleri.promenljive;
 import prikaz.TabelaLekova;
+
+
 
 public class LekoviWin extends JPanel{
 	
@@ -36,7 +38,7 @@ public class LekoviWin extends JPanel{
 	
 	JPanel users = new JPanel();
 	JPanel search = new JPanel();
-	JTextField srch = new JTextField("Polje za pretragu");
+	public static JTextField srch = new JTextField("Polje za pretragu");
 	ImageIcon field1 = new ImageIcon("img/field2.png");
 	Image image2 = field1.getImage().getScaledInstance( source.fWidth1, source.fHeight1 , Image.SCALE_SMOOTH);
 	JLabel srchL = new JLabel( new ImageIcon(image2, field1.getDescription()) );
@@ -109,6 +111,19 @@ public class LekoviWin extends JPanel{
                 srch.setText("");
             }
         });
+		
+        srch.getDocument().addDocumentListener(
+                new DocumentListener() {
+                    public void changedUpdate(DocumentEvent e) {
+                        TabelaLekova.newFilter();
+                    }
+                    public void insertUpdate(DocumentEvent e) {
+                    	TabelaLekova.newFilter();
+                    }
+                    public void removeUpdate(DocumentEvent e) {
+                    	TabelaLekova.newFilter();
+                    }
+                });
 		
 		users.setOpaque(false);
 		users.setPreferredSize(new Dimension(source.winWidth-source.blWidth,source.winHeight-source.blHeight));
