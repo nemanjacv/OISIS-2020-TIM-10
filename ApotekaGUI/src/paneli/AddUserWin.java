@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -20,7 +21,13 @@ public class AddUserWin extends JPanel{
 	
 	public static JPanel panel = new JPanel();
 	JPanel top = new JPanel();
-	JLabel korisnici = new JLabel("Dodaj Korisnika");
+	JLabel korisnici = new JLabel("Dodaj ili Izmeni Korisnika");
+	JPanel podaci = new JPanel();
+	
+	JPanel KorisnickoIme = new JPanel();
+	JPanel Ime = new JPanel();
+	JPanel Prezime = new JPanel();
+	JPanel TipKorsinika = new JPanel();
 	
 	public AddUserWin()
 	{	
@@ -37,12 +44,17 @@ public class AddUserWin extends JPanel{
 				top.setOpaque(false);
 				top.setPreferredSize(new Dimension(source.winWidth-source.blWidth,source.blHeight/2)); 
 				top.add(korisnici); 
+				
 		//--------------------------------------------------------------------------------------------------
 		//Polje
-		
+
+
+		podaci.setOpaque(false);
 		
 		
 		panel.add(top, BorderLayout.LINE_START);
+		panel.add(podaci, BorderLayout.SOUTH);
 		add(panel);
+		
 	}
 }
