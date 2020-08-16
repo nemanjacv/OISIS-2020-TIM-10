@@ -6,8 +6,11 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -17,6 +20,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
@@ -58,7 +63,7 @@ public class LekoviWin extends JPanel{
 	
 	JPanel rCena1 = new JPanel();
 	
-	JTextField od2 = new JTextField() {
+	public static JTextField od2 = new JTextField() {
 	  
 		private static final long serialVersionUID = 1L;
 
@@ -72,7 +77,7 @@ public class LekoviWin extends JPanel{
 	
 	JLabel do1 = new JLabel("Do:");
 	JPanel rCena2 = new JPanel();
-	JTextField do2 = new JTextField() {
+	public static JTextField do2 = new JTextField() {
 		  
 		private static final long serialVersionUID = 1L;
 
@@ -112,6 +117,48 @@ public class LekoviWin extends JPanel{
             }
         });
 		
+		naziv.addActionListener(new ActionListener() {
+			  public void actionPerformed(ActionEvent e) {
+				  ArrayList list = new ArrayList();
+			      list.add( new RowSorter.SortKey(0, SortOrder.ASCENDING) );
+				  TabelaLekova.sorter.setSortKeys(list);
+				  TabelaLekova.sorter.sort();
+			  }
+			});
+		proizvodjac.addActionListener(new ActionListener() {
+			  public void actionPerformed(ActionEvent e) {
+				  ArrayList list = new ArrayList();
+			      list.add( new RowSorter.SortKey(3, SortOrder.ASCENDING) );
+				  TabelaLekova.sorter.setSortKeys(list);
+				  TabelaLekova.sorter.sort();
+			  }
+			});
+		
+		od2.getDocument().addDocumentListener(
+                new DocumentListener() {
+                    public void changedUpdate(DocumentEvent e) {
+                        TabelaLekova.newFilter2();
+                    }
+                    public void insertUpdate(DocumentEvent e) {
+                    	TabelaLekova.newFilter2();
+                    }
+                    public void removeUpdate(DocumentEvent e) {
+                    	TabelaLekova.newFilter2();
+                    }
+                    
+                });
+		do2.getDocument().addDocumentListener(
+                new DocumentListener() {
+                    public void changedUpdate(DocumentEvent e) {
+                        TabelaLekova.newFilter2();
+                    }
+                    public void insertUpdate(DocumentEvent e) {
+                    	TabelaLekova.newFilter2();
+                    }
+                    public void removeUpdate(DocumentEvent e) {
+                    	TabelaLekova.newFilter2();
+                    }
+                });
         srch.getDocument().addDocumentListener(
                 new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) {
