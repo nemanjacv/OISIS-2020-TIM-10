@@ -16,6 +16,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -28,7 +29,9 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import kontroleri.promenljive;
+import prikaz.Lekovi;
 import prikaz.TabelaLekova;
+import prozori.Admin;
 
 
 
@@ -256,6 +259,32 @@ public class LekoviWin extends JPanel{
 	    rCena2.add(do1);
 	    rCena2.add(do2L);
 	    radio.add(rCena2);
+	    
+	    JButton izmena=new JButton("Izmeni Lek");
+	    JButton dodaj=new JButton("Dodaj Lek");
+	    
+	    JPanel dugmici= new JPanel();
+	    dugmici.setLayout(new FlowLayout(FlowLayout.LEFT));
+	    dugmici.setOpaque(false);
+	    dugmici.add(izmena);
+	    dugmici.add(dodaj);
+	    
+	    izmena.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Lekovi.panel.setVisible(false);
+				Admin.prozor.add(Lekovi.panel2, BorderLayout.CENTER);
+				Lekovi.panel2.setVisible(true);
+				Admin.prozor.validate();
+                Admin.prozor.repaint();
+				
+			}
+		});
+	    
+	    radio.add(dugmici);
+	    
 	    radio.setBorder(new EmptyBorder(0, 0, 100, 100));
 	    
 	    EmptyBorder eBorder4 = new EmptyBorder(20, 10, 0, 0);

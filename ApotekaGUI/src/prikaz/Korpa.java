@@ -47,6 +47,7 @@ logo.addActionListener(new ActionListener() {
 					UserList.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
 					Lekovi.panel.setVisible(false);
+					Lekovi.panel2.setVisible(false);
 					AddUser.panel.setVisible(false);
 					Admin.prozor.validate();
                     Admin.prozor.repaint();

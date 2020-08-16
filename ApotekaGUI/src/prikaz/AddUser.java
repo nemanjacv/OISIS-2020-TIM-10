@@ -47,6 +47,7 @@ public class AddUser extends JPanel {
 					UserList.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
 					Lekovi.panel.setVisible(false);
+					Lekovi.panel2.setVisible(false);
 					Korpa.panel.setVisible(false);
 					Admin.prozor.validate();
                     Admin.prozor.repaint();

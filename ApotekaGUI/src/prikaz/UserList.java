@@ -45,6 +45,7 @@ public class UserList extends JPanel {
 					panel.setVisible(true);
 					Izvestaj.panel.setVisible(false);
 					Lekovi.panel.setVisible(false);
+					Lekovi.panel2.setVisible(false);
 					Korpa.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
 					Admin.wlcm.setVisible(false);

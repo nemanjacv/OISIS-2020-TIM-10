@@ -12,17 +12,20 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import kontroleri.promenljive;
+import paneli.IzmenaLekovaWin;
 import paneli.LekoviWin;
 import prozori.Admin;
 
 public class Lekovi extends JPanel {
 	
-	static JPanel panel = new LekoviWin();
+	public static JPanel panel = new LekoviWin();
+	public static JPanel panel2 = new IzmenaLekovaWin();
 	private static final long serialVersionUID = 6714572452258716717L;
 	promenljive source = new promenljive();
 	public Lekovi()
 	{
 	panel.setOpaque(false);
+	panel2.setOpaque(false);
 	ImageIcon logoico = new ImageIcon("img/i3.png");
 	Image image3 = logoico.getImage().getScaledInstance( source.iWidth, source.iHeight , Image.SCALE_SMOOTH);
 	JButton logo = new JButton("");
@@ -43,6 +46,7 @@ public class Lekovi extends JPanel {
 				public void run() {
 					Admin.prozor.add(panel, BorderLayout.CENTER);
 					panel.setVisible(true);
+					panel2.setVisible(false);
 					Admin.wlcm.setVisible(false);
 					UserList.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
