@@ -5,16 +5,20 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import kontroleri.promenljive;
 import prikaz.TabelaIzvestaja;
+import prikaz.TabelaLekova;
 
 public class IzvestajWin extends JPanel{
 	
@@ -29,6 +33,11 @@ public class IzvestajWin extends JPanel{
 	JPanel tabela = new JPanel();
 	JPanel dugme = new JPanel();
 	JPanel table = new TabelaIzvestaja();
+	
+	static String[] proizvodjac = TabelaLekova.SH2();
+	public static JComboBox<?> ids = new JComboBox<Object>(proizvodjac);
+	String[] prodavac = TabelaLekova.SH2();
+	JComboBox<?> ids2 = new JComboBox<Object>(prodavac);
 	
 	public IzvestajWin()
 	{	
@@ -52,11 +61,13 @@ public class IzvestajWin extends JPanel{
 		izvestaj.setOpaque(false);
 		izvestaj.setBorder(new EmptyBorder(30, 0,0, 0));
 
+		ids.setPreferredSize(new Dimension(150,25));
 		
+		ids.setPreferredSize(new Dimension(170,25));
 		
 		dugmad.setLayout(new FlowLayout());
 		tabela.setLayout(new FlowLayout());
-		dugme.setLayout(new FlowLayout());	
+		dugme.setLayout(new BoxLayout(dugme, BoxLayout.Y_AXIS));
 		
 		dugmad.setOpaque(false);
 		tabela.setOpaque(false);
@@ -67,7 +78,6 @@ public class IzvestajWin extends JPanel{
 		JButton dugme2=new JButton("<html><center>Izvestaj o ukupnoj prodaji<br />svih lekova odabranog proizvodjaca</html>");
 		JButton dugme3=new JButton("<html><center>Izvestaj o ukupnoj prodaji<br />svih lekova odabranog apotekara</html>");
 		
-		JButton dugme4=new JButton("Sacuvaj");
 		
 		dugme1.setPreferredSize(new Dimension(250,40));
 		dugme2.setPreferredSize(new Dimension(250,40));
@@ -77,7 +87,17 @@ public class IzvestajWin extends JPanel{
 		dugmad.add(dugme2);
 		dugmad.add(dugme3);
 		
-		dugme.add(dugme4,BorderLayout.CENTER);
+		JPanel idsP = new JPanel();
+		idsP.setLayout(new FlowLayout());
+		idsP.add(ids);
+		idsP.setOpaque(false);
+		JPanel idsP2 = new JPanel();
+		idsP2.setLayout(new FlowLayout());
+		idsP2.add(ids2);
+		idsP2.setOpaque(false);
+		
+		dugme.add(idsP);
+		dugme.add(idsP2);
 		dugme.setBorder(new EmptyBorder(50, 0,0, 50));
 
 		tabela.add(table);
@@ -86,6 +106,16 @@ public class IzvestajWin extends JPanel{
 		izvestaj.add(dugmad,BorderLayout.NORTH);
 		izvestaj.add(tabela,BorderLayout.CENTER);
 		izvestaj.add(dugme,BorderLayout.EAST);
+		
+		
+		dugme1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
 		
 		
 		panel.add(top, BorderLayout.LINE_START);

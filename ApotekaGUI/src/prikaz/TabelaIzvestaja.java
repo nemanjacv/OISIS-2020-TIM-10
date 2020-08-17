@@ -10,6 +10,7 @@ import java.io.IOException;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
 import javax.swing.border.LineBorder;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableRowSorter;
@@ -21,6 +22,9 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import kontroleri.promenljive;
+import paneli.IzvestajWin;
+import paneli.LekoviWin;
+import prikaz.TabelaLekova.MyTableModel;
 
 public class TabelaIzvestaja extends JPanel
 {
@@ -57,6 +61,17 @@ public class TabelaIzvestaja extends JPanel
         add(scrollPane);
     }
     
+    public static void newFilter() {
+        RowFilter<MyTableModel, Object> rf = null;
+        //If current expression doesn't parse, don't update.
+        try {
+        	rf= RowFilter.regexFilter("(?i)"+IzvestajWin.ids.getSelectedItem().toString(), 2);
+        } catch (java.util.regex.PatternSyntaxException e) {
+            return;
+        }
+        sorter.setRowFilter(rf);
+    }
+    
     static class MyTableModel extends AbstractTableModel {
     	
 		private static final long serialVersionUID = 207439074890172930L;
@@ -91,7 +106,7 @@ public class TabelaIzvestaja extends JPanel
 			return data;
 		}
 		
-		private String[] columnNames = {"Naziv", "Sifra", "Kolicina", "Proizvodjac", "Prodavac", "Uk. Zarada"};
+		private String[] columnNames = {"Naziv", "Sifra", "Proizvodjac", "Prodavac", "Kolicina", "Uk. Zarada"};
 		
 		public static Object[][] data = SH();
 		

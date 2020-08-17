@@ -30,6 +30,7 @@ public class Lekar {
 	
 	JPanel logo = new Logo();
 	JPanel lek = new Lekovi();
+	JPanel recept = new Recept();
 	JPanel dno = new JPanel();
 	JPanel ctrl = new prikaz.Logout();
 	
@@ -81,6 +82,7 @@ public class Lekar {
 		ikone.setLayout(new BoxLayout(ikone, BoxLayout.Y_AXIS));
 		ikone.setOpaque(false);
 		lek.setOpaque(false);
+		recept.setOpaque(false);
 		dno.setPreferredSize(new Dimension(source.blWidth, source.blHeight*2));
 		dno.setOpaque(false);
 		dno.setLayout(new BorderLayout());
@@ -89,6 +91,7 @@ public class Lekar {
 
 		dno.add(ctrl, BorderLayout.PAGE_END);
 		ikone.add(lek);
+		ikone.add(recept);
 		ikone.add(dno);
 		prozor.add(ikone,BorderLayout.LINE_START);
 		
