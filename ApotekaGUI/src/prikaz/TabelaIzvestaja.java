@@ -77,7 +77,7 @@ public class TabelaIzvestaja extends JPanel
 			sh=wb.getSheet("korisnici");
 			int noRows = sh.getLastRowNum();
 			
-			Object[][] data = new Object[noRows][4];
+			Object[][] data = new Object[noRows][6];
 			
 			for (int i=0; i< noRows; i++)
 			{
@@ -85,14 +85,13 @@ public class TabelaIzvestaja extends JPanel
 				data[i][1] = sh.getRow(i+1).getCell(1);
 				data[i][2] = sh.getRow(i+1).getCell(2);
 				data[i][3] = sh.getRow(i+1).getCell(3);
+				data[i][4] = sh.getRow(i+1).getCell(4);
+				data[i][5] = sh.getRow(i+1).getCell(4);
 			}
 			return data;
 		}
 		
-		private String[] columnNames = {"Naziv",
-                "Sifra",
-                "Kolicina",
-                "Uk. Zarada"};
+		private String[] columnNames = {"Naziv", "Sifra", "Kolicina", "Proizvodjac", "Prodavac", "Uk. Zarada"};
 		
 		public static Object[][] data = SH();
 		
