@@ -5,11 +5,9 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -20,8 +18,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableRowSorter;
 
 import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -38,11 +35,10 @@ public class TabelaLekova extends JPanel
     public static TableRowSorter<MyTableModel> sorter;
     
 	private static FileInputStream fis;
-	private static FileOutputStream fos;
 	private static Workbook wb;
 	private static Sheet sh;
-	private static Row row;
-	private static Cell cell;
+	static DataFormatter formatter = new DataFormatter();
+
     
     public TabelaLekova() {
     	super();
@@ -75,6 +71,36 @@ public class TabelaLekova extends JPanel
         }
         sorter.setRowFilter(rf);
     }
+    
+	public static String[] SH2()  {
+		try {
+			fis= new FileInputStream("./podaci.xlsx");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			wb= WorkbookFactory.create(fis);
+		} catch (EncryptedDocumentException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sh=wb.getSheet("lekovi");
+		int noRows = sh.getLastRowNum();
+		
+		String[] data1 = new String[noRows];
+		String[] data2 = new String[noRows];
+		String[] data = new String[noRows];
+		
+		for (int i=0; i< noRows; i++)
+		{	
+			data1[i] = formatter.formatCellValue(sh.getRow(i+1).getCell(0));
+			data2[i] = formatter.formatCellValue(sh.getRow(i+1).getCell(1));
+			data[i] = data2[i]+" "+data1[i];
+		}
+		return data;
+	}
+    
     public static void newFilter2() {
     	RowFilter<MyTableModel, Object> rf = null;
     	List<RowFilter<Object,Object>> rfs = 

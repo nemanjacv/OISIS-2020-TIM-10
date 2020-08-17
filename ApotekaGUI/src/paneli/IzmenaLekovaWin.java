@@ -5,22 +5,34 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
 import kontroleri.promenljive;
-
-
-
+import prikaz.TabelaLekova;
 
 public class IzmenaLekovaWin extends JPanel{
 	
@@ -40,7 +52,7 @@ public class IzmenaLekovaWin extends JPanel{
 	JPanel cena = new JPanel();
 	JLabel Ime = new JLabel("Ime:             ");
 	JTextField ImeT = new JTextField();
-	JLabel Sifra = new JLabel("Sifra Leka: ");
+	JLabel Sifra = new JLabel("Sifra Leka:    ");
 	JLabel Proizvodjac = new JLabel("Proizvodjac:");
 	JTextField ProizvodjacT = new JTextField();
 	JLabel Recept = new JLabel("Recept:                 ");
@@ -51,6 +63,18 @@ public class IzmenaLekovaWin extends JPanel{
 	ButtonGroup radioB = new ButtonGroup();
 	ImageIcon r1 = new ImageIcon("img/r1.png");
 	ImageIcon r2 = new ImageIcon("img/r2.png");
+	
+	private static FileInputStream fis;
+	private static FileOutputStream fos;
+	private static Workbook wb;
+	private static Sheet sh;
+	private static Row row;
+	private static Cell cell;
+	private static Cell cell1;
+	private static Cell cell2;
+	private static Cell cell3;
+	private static Cell cell4;
+	
 	public IzmenaLekovaWin()
 	{	
 		//Top bar
@@ -113,7 +137,12 @@ public class IzmenaLekovaWin extends JPanel{
 //--------------------------------------------------------------------------------------------------
 		Sifra.setFont(new Font("Calibri", Font.PLAIN, 20));
 		Sifra.setForeground(Color.white);
+		
+		String[] sifre = TabelaLekova.SH2();
+		JComboBox<?> ids = new JComboBox<Object>(sifre);
+		ids.setPreferredSize(new Dimension(150,25));
 		sifra.add(Sifra);
+		sifra.add(ids);
 		
 		Ime.setFont(new Font("Calibri", Font.PLAIN, 20));
 		Ime.setForeground(Color.white);
@@ -136,12 +165,79 @@ public class IzmenaLekovaWin extends JPanel{
 		cena.add(Cena);
 		cena.add(CenaT);
 		
+		JPanel dugme = new JPanel();
+		dugme.setLayout(new FlowLayout(FlowLayout.CENTER));
+		dugme.setOpaque(false);
+		JButton primeni = new JButton("Primeni Izmenu");
+		primeni.setFont(new Font("Calibri", Font.PLAIN, 15));
+		dugme.add(primeni);
+		
+		primeni.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					fis = new FileInputStream("./podaci.xlsx");
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					wb = WorkbookFactory.create(fis);
+				} catch (EncryptedDocumentException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				sh = wb.getSheet("lekovi");
+				row= sh.createRow(ids.getSelectedIndex()+1);
+				cell= row.createCell(0);
+				cell1= row.createCell(1);
+				cell2= row.createCell(2);
+				cell3= row.createCell(3);
+				cell4= row.createCell(4);
+				cell.setCellValue(ImeT.getText());
+				cell1.setCellValue(sifre[ids.getSelectedIndex()+1].substring(0,6)+".0");
+				if (da.isSelected()) {
+					cell2.setCellValue("DA");
+				}
+				else if (ne.isSelected()) {
+					cell2.setCellValue("NE");
+				}
+				cell3.setCellValue(ProizvodjacT.getText());
+				cell4.setCellValue(CenaT.getText()+".0");
+				try {
+					fos= new FileOutputStream("./podaci.xlsx");
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					wb.write(fos);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					fos.flush();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					fos.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 		izmene.add(sifra);
 		izmene.add(ime);
 		izmene.add(proizvodjac);
 		izmene.add(recept);
 		izmene.add(cena);
+		izmene.add(dugme);
 		panel.add(top, BorderLayout.PAGE_START);
 		panel.add(izmene, BorderLayout.CENTER);
 		
