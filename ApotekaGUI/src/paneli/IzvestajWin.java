@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import kontroleri.promenljive;
+import prikaz.TabelaIzvestaja;
 
 public class IzvestajWin extends JPanel{
 	
@@ -27,7 +28,7 @@ public class IzvestajWin extends JPanel{
 	JPanel dugmad = new JPanel();
 	JPanel tabela = new JPanel();
 	JPanel dugme = new JPanel();
-	
+	JPanel table = new TabelaIzvestaja();
 	
 	public IzvestajWin()
 	{	
@@ -55,29 +56,32 @@ public class IzvestajWin extends JPanel{
 		
 		dugmad.setLayout(new FlowLayout());
 		tabela.setLayout(new FlowLayout());
-		dugme.setLayout(new BorderLayout());	
+		dugme.setLayout(new FlowLayout());	
 		
 		dugmad.setOpaque(false);
 		tabela.setOpaque(false);
 		dugme.setOpaque(false);
 		
 		
-		JButton dugme1=new JButton("prvo dugme");
-		JButton dugme2=new JButton("drgo dugme");
-		JButton dugme3=new JButton("trece dugme");
+		JButton dugme1=new JButton("<html><center>Izvestaj o ukupnoj prodaji<br />svih lekova</html>");
+		JButton dugme2=new JButton("<html><center>Izvestaj o ukupnoj prodaji<br />svih lekova odabranog proizvodjaca</html>");
+		JButton dugme3=new JButton("<html><center>Izvestaj o ukupnoj prodaji<br />svih lekova odabranog apotekara</html>");
 		
-		JButton dugme4=new JButton("cetvrto dugme");
+		JButton dugme4=new JButton("Sacuvaj");
 		
+		dugme1.setPreferredSize(new Dimension(250,40));
+		dugme2.setPreferredSize(new Dimension(250,40));
+		dugme3.setPreferredSize(new Dimension(250,40));
 		
 		dugmad.add(dugme1);
 		dugmad.add(dugme2);
 		dugmad.add(dugme3);
 		
-		
 		dugme.add(dugme4,BorderLayout.CENTER);
 		dugme.setBorder(new EmptyBorder(50, 0,0, 50));
 
-		
+		tabela.add(table);
+		table.setOpaque(false);
 		
 		izvestaj.add(dugmad,BorderLayout.NORTH);
 		izvestaj.add(tabela,BorderLayout.CENTER);
