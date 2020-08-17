@@ -296,6 +296,20 @@ public class LekoviWin extends JPanel{
 				
 			}
 		});
+	    dodaj.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Lekovi.panel.setVisible(false);
+				Admin.prozor.add(Lekovi.panel3, BorderLayout.CENTER);
+				Lekovi.panel2.setVisible(false);
+				Lekovi.panel3.setVisible(true);
+				Admin.prozor.validate();
+                Admin.prozor.repaint();
+				
+			}
+		});
 	    
 	    radio.add(dugmici);
 	    

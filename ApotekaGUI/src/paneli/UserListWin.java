@@ -6,8 +6,11 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -17,7 +20,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.RowSorter;
+import javax.swing.SortOrder;
+import javax.swing.RowSorter.SortKey;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import kontroleri.promenljive;
 import prikaz.KorisnickaTabela;
@@ -33,7 +41,7 @@ public class UserListWin extends JPanel{
 	
 	JPanel users = new JPanel();
 	JPanel search = new JPanel();
-	JTextField srch = new JTextField("Polje za pretragu");
+	public static JTextField srch = new JTextField("Polje za pretragu");
 	ImageIcon field1 = new ImageIcon("img/field2.png");
 	Image image2 = field1.getImage().getScaledInstance( source.fWidth1, source.fHeight1 , Image.SCALE_SMOOTH);
 	JLabel srchL = new JLabel( new ImageIcon(image2, field1.getDescription()) );
@@ -74,6 +82,32 @@ public class UserListWin extends JPanel{
             }
         });
 		
+		ime.addActionListener(new ActionListener() {
+			  public void actionPerformed(ActionEvent e) {
+				  ArrayList<SortKey> list = new ArrayList<SortKey>();
+			      list.add( new RowSorter.SortKey(2, SortOrder.ASCENDING) );
+				  KorisnickaTabela.sorter.setSortKeys(list);
+				  KorisnickaTabela.sorter.sort();
+			  }
+			});
+		prezime.addActionListener(new ActionListener() {
+			  public void actionPerformed(ActionEvent e) {
+				  ArrayList<SortKey> list = new ArrayList<SortKey>();
+			      list.add( new RowSorter.SortKey(3, SortOrder.ASCENDING) );
+				  KorisnickaTabela.sorter.setSortKeys(list);
+				  KorisnickaTabela.sorter.sort();
+			  }
+			});
+		tip.addActionListener(new ActionListener() {
+			  public void actionPerformed(ActionEvent e) {
+				  ArrayList<SortKey> list = new ArrayList<SortKey>();
+			      list.add( new RowSorter.SortKey(4, SortOrder.ASCENDING) );
+				  KorisnickaTabela.sorter.setSortKeys(list);
+				  KorisnickaTabela.sorter.sort();
+			  }
+			});
+		
+		
 		users.setOpaque(false);
 		users.setPreferredSize(new Dimension(source.winWidth-source.blWidth,source.winHeight-source.blHeight));
 		users.setLayout(new BorderLayout());
@@ -88,6 +122,19 @@ public class UserListWin extends JPanel{
 	    search.setLayout(new FlowLayout(FlowLayout.LEFT));
 	    search.add(srchL);
 	    search.setOpaque(false);
+	    
+	    srch.getDocument().addDocumentListener(
+                new DocumentListener() {
+                    public void changedUpdate(DocumentEvent e) {
+                        KorisnickaTabela.newFilter();
+                    }
+                    public void insertUpdate(DocumentEvent e) {
+                    	KorisnickaTabela.newFilter();
+                    }
+                    public void removeUpdate(DocumentEvent e) {
+                    	KorisnickaTabela.newFilter();
+                    }
+                });
 		
 	    sort.setFont(new Font("Calibri", Font.PLAIN, 20));
 		sort.setForeground(Color.white);
