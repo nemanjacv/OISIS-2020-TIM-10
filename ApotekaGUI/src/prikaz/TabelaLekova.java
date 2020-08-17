@@ -8,17 +8,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
-import javax.swing.RowFilter.ComparisonType;
-import javax.swing.RowSorter;
-import javax.swing.SortOrder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 import org.apache.poi.EncryptedDocumentException;
@@ -71,27 +69,31 @@ public class TabelaLekova extends JPanel
         RowFilter<MyTableModel, Object> rf = null;
         //If current expression doesn't parse, don't update.
         try {
-            rf = RowFilter.regexFilter(LekoviWin.srch.getText(), 0);
+        	rf= RowFilter.regexFilter("(?i)"+LekoviWin.srch.getText(), 0,1,3);
         } catch (java.util.regex.PatternSyntaxException e) {
             return;
         }
         sorter.setRowFilter(rf);
     }
     public static void newFilter2() {
-        RowFilter<MyTableModel, Object> rf = null;
-        //If current expression doesn't parse, don't update.
-        String Si =LekoviWin.od2.getText();
-        String Sj =LekoviWin.do2.getText();
-        String test[]= {"200","300","400"};
-        //int i=Integer.parseInt(Si);
-        //int j=Integer.parseInt(Sj);
-        //System.out.println(i);
-        try {
-        	rf = RowFilter.regexFilter(Si,4 );
-        } catch (java.util.regex.PatternSyntaxException e) {
-            return;
-        }
-        sorter.setRowFilter(rf);
+    	RowFilter<MyTableModel, Object> rf = null;
+    	List<RowFilter<Object,Object>> rfs = 
+    	            new ArrayList<RowFilter<Object,Object>>();
+
+    	try {
+    		int odInt= Integer.parseInt(LekoviWin.od2.getText());
+    		int doInt= Integer.parseInt(LekoviWin.do2.getText());
+    	    for (int i =odInt; i <= doInt; i++) {
+    	    	String txt = String.valueOf(i);
+    	        rfs.add(RowFilter.regexFilter(txt+".0", 4));
+    	    }
+    	    rf = RowFilter.orFilter(rfs);
+
+    	} catch (java.util.regex.PatternSyntaxException e) {
+    	        return;
+    	}
+
+    	sorter.setRowFilter(rf);
     }
     
     class MyTableModel extends AbstractTableModel {

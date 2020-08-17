@@ -22,6 +22,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.RowSorter;
+import javax.swing.RowSorter.SortKey;
 import javax.swing.SortOrder;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
@@ -122,7 +123,7 @@ public class LekoviWin extends JPanel{
 		
 		naziv.addActionListener(new ActionListener() {
 			  public void actionPerformed(ActionEvent e) {
-				  ArrayList list = new ArrayList();
+				  ArrayList<SortKey> list = new ArrayList<SortKey>();
 			      list.add( new RowSorter.SortKey(0, SortOrder.ASCENDING) );
 				  TabelaLekova.sorter.setSortKeys(list);
 				  TabelaLekova.sorter.sort();
@@ -130,13 +131,13 @@ public class LekoviWin extends JPanel{
 			});
 		proizvodjac.addActionListener(new ActionListener() {
 			  public void actionPerformed(ActionEvent e) {
-				  ArrayList list = new ArrayList();
+				  ArrayList<SortKey> list = new ArrayList<SortKey>();
 			      list.add( new RowSorter.SortKey(3, SortOrder.ASCENDING) );
 				  TabelaLekova.sorter.setSortKeys(list);
 				  TabelaLekova.sorter.sort();
 			  }
 			});
-		
+		/*
 		od2.getDocument().addDocumentListener(
                 new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) {
@@ -150,6 +151,7 @@ public class LekoviWin extends JPanel{
                     }
                     
                 });
+		
 		do2.getDocument().addDocumentListener(
                 new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) {
@@ -162,6 +164,7 @@ public class LekoviWin extends JPanel{
                     	TabelaLekova.newFilter2();
                     }
                 });
+                */
         srch.getDocument().addDocumentListener(
                 new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) {
@@ -258,6 +261,17 @@ public class LekoviWin extends JPanel{
 	    rCena2.setLayout(new FlowLayout(FlowLayout.LEADING));
 	    rCena2.add(do1);
 	    rCena2.add(do2L);
+	    JButton filter = new JButton("Primeni");
+	    filter.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				od2.getText();
+				do2.getText();
+				TabelaLekova.newFilter2();
+			}
+		});
+	    rCena2.add(filter);
 	    radio.add(rCena2);
 	    
 	    JButton izmena=new JButton("Izmeni Lek");
