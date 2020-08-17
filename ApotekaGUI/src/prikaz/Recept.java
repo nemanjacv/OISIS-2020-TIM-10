@@ -27,7 +27,7 @@ public class Recept extends JPanel {
 	{
 	panel.setOpaque(false);
 	
-	ImageIcon logoico = new ImageIcon("img/i3.png");
+	ImageIcon logoico = new ImageIcon("img/i6.png");
 	Image image3 = logoico.getImage().getScaledInstance( source.iWidth, source.iHeight , Image.SCALE_SMOOTH);
 	JButton logo = new JButton("");
 	logoico = new ImageIcon(image3, logoico.getDescription());
