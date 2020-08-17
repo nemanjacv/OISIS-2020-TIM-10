@@ -70,11 +70,11 @@ public class KorisnickaTabela extends JPanel
         sorter.setRowFilter(rf);
     }
     
-    class MyTableModel extends AbstractTableModel {
+    static class MyTableModel extends AbstractTableModel {
     	
 		private static final long serialVersionUID = 207439074890172930L;
 		
-		public Object[][] SH()  {
+		public static Object[][] SH()  {
 			try {
 				fis= new FileInputStream("./podaci.xlsx");
 			} catch (FileNotFoundException e) {
@@ -109,7 +109,7 @@ public class KorisnickaTabela extends JPanel
                 "Prezime",
                 "TIP"};
 		
-		private Object[][] data = SH();
+		public static Object[][] data = SH();
 		
 		public int getColumnCount() {
 		return columnNames.length;
@@ -127,4 +127,9 @@ public class KorisnickaTabela extends JPanel
 		return data[row][col];
 		}
     }
+
+	public static Object[][] SH() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

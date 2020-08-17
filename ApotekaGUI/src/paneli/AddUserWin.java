@@ -7,9 +7,11 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.BorderFactory;
@@ -156,7 +158,7 @@ public class AddUserWin extends JPanel{
 		JPanel dugme = new JPanel();
 		dugme.setLayout(new FlowLayout(FlowLayout.CENTER));
 		dugme.setOpaque(false);
-		JButton primeni = new JButton("Dodaj Lek");
+		JButton primeni = new JButton("Dodaj Korisnika");
 		primeni.setFont(new Font("Calibri", Font.PLAIN, 15));
 		dugme.add(primeni);
 		
@@ -184,6 +186,7 @@ public class AddUserWin extends JPanel{
 				cell2= row.createCell(2);
 				cell3= row.createCell(3);
 				cell4= row.createCell(4);
+				
 				cell.setCellValue(KorisnickoimeT.getText());
 				cell1.setCellValue(passT.getText());
 				if (apt.isSelected()) {

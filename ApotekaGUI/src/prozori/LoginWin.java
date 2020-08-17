@@ -28,6 +28,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class LoginWin implements ActionListener{
+	
 	int i =1;
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	int screenHeight = screenSize.height;
@@ -51,7 +52,7 @@ public class LoginWin implements ActionListener{
 	JFrame frame = new JFrame();
 	
 public	LoginWin()
-	{      
+	{    
 		frame.setPreferredSize(new Dimension(winWidth, winHeight));
 		
 		JPanel dugme = new JPanel();
