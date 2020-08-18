@@ -29,7 +29,7 @@ public class Lekar {
 	public static JPanel wlcm = new JPanel();
 	
 	JPanel logo = new Logo();
-	JPanel lek = new Lekovi();
+	JPanel lek = new Lekovi2();
 	JPanel recept = new Recept();
 	JPanel dno = new JPanel();
 	JPanel ctrl = new prikaz.Logout();

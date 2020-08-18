@@ -15,6 +15,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import kontroleri.promenljive;
 import prikaz.TabelaIzvestaja;
@@ -34,10 +36,10 @@ public class IzvestajWin extends JPanel{
 	JPanel dugme = new JPanel();
 	JPanel table = new TabelaIzvestaja();
 	
-	static String[] proizvodjac = TabelaLekova.SH2();
+	static String[] proizvodjac = TabelaIzvestaja.SH2();
 	public static JComboBox<?> ids = new JComboBox<Object>(proizvodjac);
-	String[] prodavac = TabelaLekova.SH2();
-	JComboBox<?> ids2 = new JComboBox<Object>(prodavac);
+	static String[] prodavac = TabelaIzvestaja.SH3();
+	static public JComboBox<?> ids2 = new JComboBox<Object>(prodavac);
 	
 	public IzvestajWin()
 	{	
@@ -98,7 +100,6 @@ public class IzvestajWin extends JPanel{
 		
 		dugme.add(idsP);
 		dugme.add(idsP2);
-		dugme.setBorder(new EmptyBorder(50, 0,0, 50));
 
 		tabela.add(table);
 		table.setOpaque(false);
@@ -112,8 +113,22 @@ public class IzvestajWin extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				TabelaIzvestaja.newFilter();
+			}
+		});
+		dugme2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TabelaIzvestaja.newFilter1();
+			}
+		});
+		
+		dugme3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TabelaIzvestaja.newFilter2();
 			}
 		});
 		

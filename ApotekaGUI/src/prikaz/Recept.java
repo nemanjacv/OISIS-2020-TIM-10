@@ -49,6 +49,7 @@ public class Recept extends JPanel {
 					UserList.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
 					Lekovi.panel.setVisible(false);
+					Lekovi2.panel.setVisible(false);
 					Korpa.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
 					Admin.prozor.validate();

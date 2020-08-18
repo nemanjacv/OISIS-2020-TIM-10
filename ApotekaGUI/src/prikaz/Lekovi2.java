@@ -15,21 +15,18 @@ import kontroleri.promenljive;
 import paneli.DodavanjeLekovaWin;
 import paneli.IzmenaLekovaWin;
 import paneli.LekoviWin;
+import paneli.LekoviWin2;
 import prozori.Admin;
 import prozori.Lekar;
 
-public class Lekovi extends JPanel {
+public class Lekovi2 extends JPanel {
 	
-	public static JPanel panel = new LekoviWin();
-	public static JPanel panel2 = new IzmenaLekovaWin();
-	public static JPanel panel3 = new DodavanjeLekovaWin();
+	public static JPanel panel = new LekoviWin2();
 	private static final long serialVersionUID = 6714572452258716717L;
 	promenljive source = new promenljive();
-	public Lekovi()
+	public Lekovi2()
 	{
 	panel.setOpaque(false);
-	panel2.setOpaque(false);
-	panel3.setOpaque(false);
 	ImageIcon logoico = new ImageIcon("img/i3.png");
 	Image image3 = logoico.getImage().getScaledInstance( source.iWidth, source.iHeight , Image.SCALE_SMOOTH);
 	JButton logo = new JButton("");
@@ -48,10 +45,8 @@ public class Lekovi extends JPanel {
 				
 				@Override
 				public void run() {
-					Admin.prozor.add(panel, BorderLayout.CENTER);
+					Lekar.prozor.add(panel, BorderLayout.CENTER);
 					panel.setVisible(true);
-					panel2.setVisible(false);
-					panel3.setVisible(false);
 					Admin.wlcm.setVisible(false);
 					Lekar.wlcm.setVisible(false);
 					UserList.panel.setVisible(false);
