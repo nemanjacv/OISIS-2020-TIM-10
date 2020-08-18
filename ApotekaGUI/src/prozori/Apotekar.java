@@ -30,7 +30,7 @@ public class Apotekar {
 	
 	JPanel logo = new Logo();
 	JPanel lek = new Lekovi();
-	JPanel korpa = new Shop();
+	JPanel korpa = new Korpa();
 	JPanel dno = new JPanel();
 	JPanel ctrl = new prikaz.Logout();
 	

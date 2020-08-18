@@ -7,6 +7,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -21,6 +23,12 @@ public class KorpaWin extends JPanel{
 	public static JPanel panel = new JPanel();
 	JPanel top = new JPanel();
 	JLabel korisnici = new JLabel("Korpa");
+	
+	JPanel korpa = new JPanel();
+	JPanel tabela = new JPanel();
+	JPanel dugme = new JPanel();
+	JLabel ukupno = new JLabel("Ukupno:");
+	JLabel ukupno1 = new JLabel("broj?");
 	
 	public KorpaWin()
 	{	
@@ -40,9 +48,38 @@ public class KorpaWin extends JPanel{
 		//--------------------------------------------------------------------------------------------------
 		//Polje
 		
+				korpa.setLayout(new BorderLayout());	
+				korpa.setOpaque(false);
+				korpa.setBorder(new EmptyBorder(30, 0,0, 0));
+				
+				tabela.setLayout(new FlowLayout());
+				dugme.setLayout(new BoxLayout(dugme, BoxLayout.Y_AXIS));
+				tabela.setOpaque(false);
+				dugme.setOpaque(false);
+				
+				ukupno.setFont(new Font("Calibri", Font.PLAIN, 20)); 
+				ukupno.setForeground(Color.white);
+				ukupno.setBorder(BorderFactory.createCompoundBorder(null, eBorder));
+				
+				ukupno1.setFont(new Font("Calibri", Font.PLAIN, 20)); 
+				ukupno1.setForeground(Color.white);
+				ukupno1.setBorder(BorderFactory.createCompoundBorder(null, eBorder));
+				
+				JButton dugme1=new JButton("Kupi");
+				dugme1.setPreferredSize(new Dimension(60,40));
+				
+				dugme.add(ukupno);
+				dugme.add(ukupno1);
+				dugme.add(dugme1);
+				
+				korpa.add(tabela,BorderLayout.CENTER);
+				korpa.add(dugme,BorderLayout.EAST);
+				
+				
 		
 		
 		panel.add(top, BorderLayout.LINE_START);
+		panel.add(korpa, BorderLayout.LINE_START);
 		add(panel);
 	}
 }

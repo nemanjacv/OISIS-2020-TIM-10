@@ -5,25 +5,24 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-
 import kontroleri.promenljive;
 import paneli.KorpaWin;
-import prozori.Admin;
+import prozori.Apotekar;
 
 public class Korpa extends JPanel {
 	
-	static JPanel panel = new KorpaWin();
-	private static final long serialVersionUID = -5152853242610492892L;
+	public static JPanel panel = new KorpaWin();
+	private static final long serialVersionUID = 6714572452258716717L;
 	promenljive source = new promenljive();
 	public Korpa()
 	{
 	panel.setOpaque(false);
-	ImageIcon logoico = new ImageIcon("img/i7.png");
+
+	ImageIcon logoico = new ImageIcon("img/i5.png");
 	Image image3 = logoico.getImage().getScaledInstance( source.iWidth, source.iHeight , Image.SCALE_SMOOTH);
 	JButton logo = new JButton("");
 	logoico = new ImageIcon(image3, logoico.getDescription());
@@ -32,7 +31,7 @@ public class Korpa extends JPanel {
 	logo.setBorder(null);
 	logo.setFocusable(false);
 	logo.setContentAreaFilled(false);
-logo.addActionListener(new ActionListener() {
+	logo.addActionListener(new ActionListener() {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -41,24 +40,22 @@ logo.addActionListener(new ActionListener() {
 				
 				@Override
 				public void run() {
-					Admin.prozor.add(panel, BorderLayout.CENTER);
+					Apotekar.prozor.add(panel, BorderLayout.CENTER);
 					panel.setVisible(true);
-					Admin.wlcm.setVisible(false);
+					Apotekar.wlcm.setVisible(false);
 					UserList.panel.setVisible(false);
+					Recept.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
-					Lekovi.panel.setVisible(false);
-					Lekovi.panel2.setVisible(false);
-					Lekovi.panel3.setVisible(false);
+					Korpa.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
-					Admin.prozor.validate();
-                    Admin.prozor.repaint();
+					Apotekar.prozor.validate();
+					Apotekar.prozor.repaint();
 					
 				}
 			});
 			
 		}
-	});
-
+	});	
 	add(logo);
 	}
 
