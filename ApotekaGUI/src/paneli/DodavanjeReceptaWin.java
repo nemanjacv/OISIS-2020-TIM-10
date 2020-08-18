@@ -49,9 +49,15 @@ public class DodavanjeReceptaWin extends JPanel{
 	JLabel Podaci = new JLabel("PODACI O PACIJENTU ");
 
 	JPanel jmbg = new JPanel();
-	JLabel JMBG = new JLabel("Ime:     ");
+	JLabel JMBG = new JLabel("JMBG    ");
 	JTextField JMBGT = new JTextField();
 	
+	JPanel podaci2 = new JPanel();
+	JLabel Podaci2 = new JLabel("OSTALI PODACI  ");
+	
+	JPanel datumI = new JPanel();
+	JLabel DatumI = new JLabel("Datum izdavanja    ");
+	JTextField DatumIT = new JTextField();
 	
 	public DodavanjeReceptaWin()
 	{	
@@ -73,15 +79,26 @@ public class DodavanjeReceptaWin extends JPanel{
 		izmene.setOpaque( false );
 		izmene.setBorder(new EmptyBorder(70, 0,0, 0));
 		
-		jmbg.setLayout(new FlowLayout(FlowLayout.CENTER));
-		jmbg.setOpaque( false );
-		JMBG.setOpaque( false );
-		JMBGT.setPreferredSize(new Dimension(150,25));
-		
-		
 		podaci.setLayout(new FlowLayout(FlowLayout.CENTER));
 		podaci.setOpaque( false );
 		Podaci.setOpaque( false );
+		
+		jmbg.setLayout(new FlowLayout(FlowLayout.CENTER));
+		jmbg.setOpaque( false );
+		JMBG.setOpaque( false );
+		JMBGT.setPreferredSize(new Dimension(150,20));
+		
+		
+		podaci2.setLayout(new FlowLayout(FlowLayout.CENTER));
+		podaci2.setOpaque( false );
+		Podaci2.setOpaque( false );
+		
+		
+		datumI.setLayout(new FlowLayout(FlowLayout.CENTER));
+		datumI.setOpaque( false );
+		DatumI.setOpaque( false );
+		DatumIT.setPreferredSize(new Dimension(150,20));
+
 		
 		
 //--------------------------------------------------------------------------------------------------
@@ -98,6 +115,14 @@ public class DodavanjeReceptaWin extends JPanel{
 		jmbg.add(JMBGT);
 		
 		
+		Podaci2.setFont(new Font("Calibri", Font.PLAIN, 20));
+		Podaci2.setForeground(Color.white);
+		podaci2.add(Podaci);
+		
+		DatumI.setFont(new Font("Calibri", Font.PLAIN, 15));
+		DatumI.setForeground(Color.white);
+		datumI.add(DatumI);
+		datumI.add(DatumIT);
 	
 		
 		izmene.add(jmbg);
