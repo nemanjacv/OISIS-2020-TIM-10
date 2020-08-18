@@ -16,6 +16,7 @@ import paneli.DodavanjeLekovaWin;
 import paneli.IzmenaLekovaWin;
 import paneli.LekoviWin;
 import prozori.Admin;
+import prozori.Lekar;
 
 public class Lekovi extends JPanel {
 	
@@ -48,11 +49,14 @@ public class Lekovi extends JPanel {
 				@Override
 				public void run() {
 					Admin.prozor.add(panel, BorderLayout.CENTER);
+					Lekar.prozor.add(panel, BorderLayout.CENTER);
 					panel.setVisible(true);
 					panel2.setVisible(false);
 					panel3.setVisible(false);
 					Admin.wlcm.setVisible(false);
+					Lekar.wlcm.setVisible(false);
 					UserList.panel.setVisible(false);
+					Recept.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
 					Korpa.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
