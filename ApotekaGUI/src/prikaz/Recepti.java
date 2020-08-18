@@ -45,10 +45,10 @@ public class Recepti extends JPanel {
 				@Override
 				public void run() {
 					Lekar.prozor.add(panel, BorderLayout.CENTER);
-					Lekar.prozor.add(panel2, BorderLayout.CENTER);
 					panel.setVisible(true);
 					panel2.setVisible(false);
 					Lekar.wlcm.setVisible(false);
+					Lekovi2.panel.setVisible(false);
 					UserList.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
 					Korpa.panel.setVisible(false);

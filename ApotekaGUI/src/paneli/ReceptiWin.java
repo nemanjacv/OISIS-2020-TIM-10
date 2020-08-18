@@ -31,10 +31,10 @@ import javax.swing.event.DocumentListener;
 
 import kontroleri.promenljive;
 import prikaz.Lekovi;
+import prikaz.Recepti;
 import prikaz.TabelaLekova;
 import prozori.Admin;
-
-
+import prozori.Lekar;
 
 public class ReceptiWin extends JPanel{
 	
@@ -43,7 +43,7 @@ public class ReceptiWin extends JPanel{
 	
 	JPanel panel = new JPanel();
 	JPanel top = new JPanel();
-	JLabel korisnici = new JLabel("Lekovi");
+	JLabel korisnici = new JLabel("Recepti");
 	
 	JPanel users = new JPanel();
 	JPanel search = new JPanel();
@@ -274,39 +274,23 @@ public class ReceptiWin extends JPanel{
 	    rCena2.add(filter);
 	    radio.add(rCena2);
 	    
-	    JButton izmena=new JButton("Izmeni Lek");
-	    JButton dodaj=new JButton("Dodaj Lek");
+	    JButton dodaj=new JButton("Dodaj Recept");
 	    
 	    JPanel dugmici= new JPanel();
 	    dugmici.setLayout(new FlowLayout(FlowLayout.LEFT));
 	    dugmici.setOpaque(false);
-	    dugmici.add(izmena);
 	    dugmici.add(dodaj);
 	    
-	    izmena.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				Lekovi.panel.setVisible(false);
-				Admin.prozor.add(Lekovi.panel2, BorderLayout.CENTER);
-				Lekovi.panel2.setVisible(true);
-				Admin.prozor.validate();
-                Admin.prozor.repaint();
-				
-			}
-		});
 	    dodaj.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				Lekovi.panel.setVisible(false);
-				Admin.prozor.add(Lekovi.panel3, BorderLayout.CENTER);
-				Lekovi.panel2.setVisible(false);
-				Lekovi.panel3.setVisible(true);
-				Admin.prozor.validate();
-                Admin.prozor.repaint();
+				Recepti.panel.setVisible(false);
+				Recepti.panel2.setVisible(true);
+				Lekar.prozor.add(Recepti.panel2, BorderLayout.CENTER);
+				Lekar.prozor.validate();
+                Lekar.prozor.repaint();
 				
 			}
 		});
