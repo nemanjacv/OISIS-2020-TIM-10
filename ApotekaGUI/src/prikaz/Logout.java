@@ -70,6 +70,7 @@ public class Logout extends JPanel {
 				Lekovi.panel.setVisible(false);
 				Lekovi.panel2.setVisible(false);
 				Lekovi.panel3.setVisible(false);
+				Lekovi2.panel.setVisible(false);
 				Recept.panel.setVisible(false);
 				Izvestaj.panel.setVisible(false);
 				AddUser.panel.setVisible(false);
