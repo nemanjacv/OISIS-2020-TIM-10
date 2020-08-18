@@ -23,8 +23,6 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import kontroleri.promenljive;
 import paneli.IzvestajWin;
-import paneli.LekoviWin;
-import prikaz.TabelaLekova.MyTableModel;
 
 public class TabelaIzvestaja extends JPanel
 {

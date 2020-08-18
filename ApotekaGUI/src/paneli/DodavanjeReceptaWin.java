@@ -5,34 +5,16 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-
 import kontroleri.promenljive;
-import prikaz.TabelaLekova;
 
 public class DodavanjeReceptaWin extends JPanel{
 	
@@ -49,37 +31,37 @@ public class DodavanjeReceptaWin extends JPanel{
 	JLabel Podaci = new JLabel("PODACI O PACIJENTU ");
 
 	JPanel jmbg = new JPanel();
-	JLabel JMBG = new JLabel("JMBG                          ");
+	JLabel JMBG = new JLabel("JMBG                              ");
 	JTextField JMBGT = new JTextField();
 	
 	JPanel podaci2 = new JPanel();
 	JLabel Podaci2 = new JLabel("OSTALI PODACI     ");
 	
 	JPanel datumI = new JPanel();
-	JLabel DatumI = new JLabel("Datum izdavanja    ");
+	JLabel DatumI = new JLabel("Datum izdavanja       ");
 	JTextField DatumIT = new JTextField();
 	
 	JPanel datumK= new JPanel();
-	JLabel DatumK = new JLabel("Datum kreiranja     ");
+	JLabel DatumK = new JLabel("Datum kreiranja        ");
 	JTextField DatumKT = new JTextField();
 	
 	JPanel lekovi = new JPanel(); 
 	JLabel Lekovi = new JLabel("LEKOVI           ");
 	
 	JPanel sifra= new JPanel();
-	JLabel Sifra = new JLabel("Sifra                               ");
+	JLabel Sifra = new JLabel("Sifra                                 ");
 	JTextField SifraT = new JTextField();
 	
 	JPanel kolicina= new JPanel();
-	JLabel Kolicina = new JLabel("Kolicina                        ");
+	JLabel Kolicina = new JLabel("Kolicina                          ");
 	JTextField KolicinaT = new JTextField();
 	
 	JPanel sifraL= new JPanel();
-	JLabel SifraL = new JLabel("SIFRA LEKARA      ");
+	JLabel SifraL = new JLabel("SIFRA LEKARA   ");
 	JTextField SifraLT = new JTextField();
 	
 	JPanel sifraR= new JPanel();
-	JLabel SifraR = new JLabel("SIFRA RECEPTA    ");
+	JLabel SifraR = new JLabel("SIFRA RECEPTA ");
 	JTextField SifraRT = new JTextField();
 	
 	
@@ -210,6 +192,13 @@ public class DodavanjeReceptaWin extends JPanel{
 		sifraR.add(SifraR);
 		sifraR.add(SifraRT);
 		
+		JPanel dugme = new JPanel();
+		dugme.setLayout(new FlowLayout(FlowLayout.CENTER));
+		dugme.setOpaque(false);
+		JButton primeni = new JButton("Dodaj Recept");
+		primeni.setFont(new Font("Calibri", Font.PLAIN, 15));
+		dugme.add(primeni);
+		
 		
 		izmene.add(podaci);
 		izmene.add(jmbg);
@@ -221,6 +210,7 @@ public class DodavanjeReceptaWin extends JPanel{
 		izmene.add(kolicina);
 		izmene.add(sifraL);
 		izmene.add(sifraR);
+		izmene.add(dugme);
 
 		panel.add(top, BorderLayout.PAGE_START);
 		panel.add(izmene, BorderLayout.CENTER);

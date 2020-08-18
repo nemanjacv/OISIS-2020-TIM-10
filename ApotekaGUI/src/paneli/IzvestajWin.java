@@ -15,12 +15,9 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 
 import kontroleri.promenljive;
 import prikaz.TabelaIzvestaja;
-import prikaz.TabelaLekova;
 
 public class IzvestajWin extends JPanel{
 	

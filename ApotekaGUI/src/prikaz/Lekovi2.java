@@ -12,9 +12,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import kontroleri.promenljive;
-import paneli.DodavanjeLekovaWin;
-import paneli.IzmenaLekovaWin;
-import paneli.LekoviWin;
 import paneli.LekoviWin2;
 import prozori.Admin;
 import prozori.Lekar;

@@ -30,9 +30,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import kontroleri.promenljive;
-import prikaz.Lekovi;
 import prikaz.TabelaLekova;
-import prozori.Admin;
 
 
 
