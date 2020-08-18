@@ -47,7 +47,7 @@ public class TabelaIzvestaja extends JPanel
         sorter = new TableRowSorter<MyTableModel>(model);
         table = new JTable(model);
         table.setRowSorter(sorter);
-        table.setPreferredScrollableViewportSize(new Dimension(620,300));
+        table.setPreferredScrollableViewportSize(new Dimension(570,300));
         table.setFillsViewportHeight(true);
         table.setOpaque(false);
         table.setFont(new Font("Calibri", Font.PLAIN, 15));
@@ -65,12 +65,84 @@ public class TabelaIzvestaja extends JPanel
         RowFilter<MyTableModel, Object> rf = null;
         //If current expression doesn't parse, don't update.
         try {
+        	rf= RowFilter.regexFilter("", 2);
+        } catch (java.util.regex.PatternSyntaxException e) {
+            return;
+        }
+        sorter.setRowFilter(rf);
+    }
+    
+    public static void newFilter1() {
+        RowFilter<MyTableModel, Object> rf = null;
+        //If current expression doesn't parse, don't update.
+        try {
         	rf= RowFilter.regexFilter("(?i)"+IzvestajWin.ids.getSelectedItem().toString(), 2);
         } catch (java.util.regex.PatternSyntaxException e) {
             return;
         }
         sorter.setRowFilter(rf);
     }
+    
+    public static void newFilter2() {
+        RowFilter<MyTableModel, Object> rf = null;
+        //If current expression doesn't parse, don't update.
+        try {
+        	rf= RowFilter.regexFilter("(?i)"+IzvestajWin.ids2.getSelectedItem().toString(), 3);
+        } catch (java.util.regex.PatternSyntaxException e) {
+            return;
+        }
+        sorter.setRowFilter(rf);
+    }
+    
+    public static String[] SH2()  {
+		try {
+			fis= new FileInputStream("./podaci.xlsx");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			wb= WorkbookFactory.create(fis);
+		} catch (EncryptedDocumentException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sh=wb.getSheet("izvestaj");
+		int noRows = sh.getLastRowNum();
+		
+		String[] data = new String[noRows];
+		
+		for (int i=0; i< noRows; i++)
+		{	
+			data[i] = formatter.formatCellValue(sh.getRow(i+1).getCell(2));
+		}
+		return data;
+	}
+    
+    public static String[] SH3()  {
+		try {
+			fis= new FileInputStream("./podaci.xlsx");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			wb= WorkbookFactory.create(fis);
+		} catch (EncryptedDocumentException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sh=wb.getSheet("izvestaj");
+		int noRows = sh.getLastRowNum();
+		
+		String[] data = new String[noRows];
+		
+		for (int i=0; i< noRows; i++)
+		{	
+			data[i] = formatter.formatCellValue(sh.getRow(i+1).getCell(3));
+		}
+		return data;
+	}
     
     static class MyTableModel extends AbstractTableModel {
     	
@@ -89,7 +161,7 @@ public class TabelaIzvestaja extends JPanel
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sh=wb.getSheet("korisnici");
+			sh=wb.getSheet("izvestaj");
 			int noRows = sh.getLastRowNum();
 			
 			Object[][] data = new Object[noRows][6];
@@ -101,7 +173,7 @@ public class TabelaIzvestaja extends JPanel
 				data[i][2] = sh.getRow(i+1).getCell(2);
 				data[i][3] = sh.getRow(i+1).getCell(3);
 				data[i][4] = sh.getRow(i+1).getCell(4);
-				data[i][5] = sh.getRow(i+1).getCell(4);
+				data[i][5] = sh.getRow(i+1).getCell(5);
 			}
 			return data;
 		}
