@@ -12,11 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import kontroleri.promenljive;
-import paneli.DodavanjeLekovaWin;
 import paneli.DodavanjeReceptaWin;
-import paneli.IzmenaLekovaWin;
-import paneli.LekoviWin;
 import prozori.Admin;
+import prozori.Lekar;
 
 public class Recept extends JPanel {
 	
@@ -45,11 +43,12 @@ public class Recept extends JPanel {
 				
 				@Override
 				public void run() {
-					Admin.prozor.add(panel, BorderLayout.CENTER);
+					Lekar.prozor.add(panel, BorderLayout.CENTER);
 					panel.setVisible(true);
-					Admin.wlcm.setVisible(false);
+					Lekar.wlcm.setVisible(false);
 					UserList.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
+					Lekovi.panel.setVisible(false);
 					Korpa.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
 					Admin.prozor.validate();
