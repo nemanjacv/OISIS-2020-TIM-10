@@ -47,7 +47,7 @@ public class Lekovi2 extends JPanel {
 					Admin.wlcm.setVisible(false);
 					Lekar.wlcm.setVisible(false);
 					UserList.panel.setVisible(false);
-					Recept.panel.setVisible(false);
+					Recepti.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
 					Korpa.panel.setVisible(false);
 					AddUser.panel.setVisible(false);

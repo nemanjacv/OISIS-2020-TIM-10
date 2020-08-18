@@ -13,18 +13,19 @@ import javax.swing.SwingUtilities;
 
 import kontroleri.promenljive;
 import paneli.DodavanjeReceptaWin;
-import prozori.Admin;
+import paneli.ReceptiWin;
 import prozori.Lekar;
 
-public class Recept extends JPanel {
+public class Recepti extends JPanel {
 	
-	public static JPanel panel = new DodavanjeReceptaWin();
+	public static JPanel panel = new ReceptiWin();
+	public static JPanel panel2 = new DodavanjeReceptaWin();
 	private static final long serialVersionUID = 6714572452258716717L;
 	promenljive source = new promenljive();
-	public Recept()
+	public Recepti()
 	{
 	panel.setOpaque(false);
-	
+	panel2.setOpaque(false);
 	ImageIcon logoico = new ImageIcon("img/i6.png");
 	Image image3 = logoico.getImage().getScaledInstance( source.iWidth, source.iHeight , Image.SCALE_SMOOTH);
 	JButton logo = new JButton("");
@@ -44,16 +45,16 @@ public class Recept extends JPanel {
 				@Override
 				public void run() {
 					Lekar.prozor.add(panel, BorderLayout.CENTER);
+					Lekar.prozor.add(panel2, BorderLayout.CENTER);
 					panel.setVisible(true);
+					panel2.setVisible(false);
 					Lekar.wlcm.setVisible(false);
 					UserList.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
-					Lekovi.panel.setVisible(false);
-					Lekovi2.panel.setVisible(false);
 					Korpa.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
-					Admin.prozor.validate();
-                    Admin.prozor.repaint();
+					Lekar.prozor.validate();
+                    Lekar.prozor.repaint();
 					
 				}
 			});

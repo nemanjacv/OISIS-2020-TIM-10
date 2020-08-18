@@ -30,11 +30,13 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import kontroleri.promenljive;
-import prikaz.TabelaLekova2;
+import prikaz.Lekovi;
+import prikaz.TabelaLekova;
+import prozori.Admin;
 
 
 
-public class LekoviWin2 extends JPanel{
+public class ReceptiWin extends JPanel{
 	
 	private static final long serialVersionUID = -1814873711205869180L;
 	promenljive source = new promenljive();
@@ -51,7 +53,7 @@ public class LekoviWin2 extends JPanel{
 	JLabel srchL = new JLabel( new ImageIcon(image2, field1.getDescription()) );
 	
 	JPanel tabela = new JPanel();
-	JPanel table = new TabelaLekova2();
+	JPanel table = new TabelaLekova();
 	
 	JPanel radio = new JPanel();
 	JLabel sort = new JLabel("Sortiraj po:");
@@ -96,7 +98,7 @@ public class LekoviWin2 extends JPanel{
 	
 	
 	
-	public LekoviWin2()
+	public ReceptiWin()
 	{	
 		//Top bar
 		panel.setLayout(new BorderLayout());	
@@ -123,16 +125,16 @@ public class LekoviWin2 extends JPanel{
 			  public void actionPerformed(ActionEvent e) {
 				  ArrayList<SortKey> list = new ArrayList<SortKey>();
 			      list.add( new RowSorter.SortKey(0, SortOrder.ASCENDING) );
-				  TabelaLekova2.sorter.setSortKeys(list);
-				  TabelaLekova2.sorter.sort();
+				  TabelaLekova.sorter.setSortKeys(list);
+				  TabelaLekova.sorter.sort();
 			  }
 			});
 		proizvodjac.addActionListener(new ActionListener() {
 			  public void actionPerformed(ActionEvent e) {
 				  ArrayList<SortKey> list = new ArrayList<SortKey>();
 			      list.add( new RowSorter.SortKey(3, SortOrder.ASCENDING) );
-				  TabelaLekova2.sorter.setSortKeys(list);
-				  TabelaLekova2.sorter.sort();
+				  TabelaLekova.sorter.setSortKeys(list);
+				  TabelaLekova.sorter.sort();
 			  }
 			});
 		/*
@@ -166,13 +168,13 @@ public class LekoviWin2 extends JPanel{
         srch.getDocument().addDocumentListener(
                 new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) {
-                        TabelaLekova2.newFilter();
+                        TabelaLekova.newFilter();
                     }
                     public void insertUpdate(DocumentEvent e) {
-                    	TabelaLekova2.newFilter();
+                    	TabelaLekova.newFilter();
                     }
                     public void removeUpdate(DocumentEvent e) {
-                    	TabelaLekova2.newFilter();
+                    	TabelaLekova.newFilter();
                     }
                 });
 		
@@ -266,17 +268,48 @@ public class LekoviWin2 extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				od2.getText();
 				do2.getText();
-				TabelaLekova2.newFilter2();
+				TabelaLekova.newFilter2();
 			}
 		});
 	    rCena2.add(filter);
 	    radio.add(rCena2);
 	    
+	    JButton izmena=new JButton("Izmeni Lek");
+	    JButton dodaj=new JButton("Dodaj Lek");
 	    
 	    JPanel dugmici= new JPanel();
 	    dugmici.setLayout(new FlowLayout(FlowLayout.LEFT));
 	    dugmici.setOpaque(false);
+	    dugmici.add(izmena);
+	    dugmici.add(dodaj);
 	    
+	    izmena.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Lekovi.panel.setVisible(false);
+				Admin.prozor.add(Lekovi.panel2, BorderLayout.CENTER);
+				Lekovi.panel2.setVisible(true);
+				Admin.prozor.validate();
+                Admin.prozor.repaint();
+				
+			}
+		});
+	    dodaj.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Lekovi.panel.setVisible(false);
+				Admin.prozor.add(Lekovi.panel3, BorderLayout.CENTER);
+				Lekovi.panel2.setVisible(false);
+				Lekovi.panel3.setVisible(true);
+				Admin.prozor.validate();
+                Admin.prozor.repaint();
+				
+			}
+		});
 	    
 	    radio.add(dugmici);
 	    

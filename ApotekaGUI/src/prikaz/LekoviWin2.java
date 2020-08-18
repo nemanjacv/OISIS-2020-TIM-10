@@ -1,4 +1,4 @@
-package paneli;
+package prikaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -30,7 +30,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import kontroleri.promenljive;
-import prikaz.TabelaLekova2;
 
 
 

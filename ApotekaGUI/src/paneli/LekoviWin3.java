@@ -30,11 +30,11 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import kontroleri.promenljive;
-import prikaz.TabelaLekova2;
+import prikaz.TabelaLekova3;
 
 
 
-public class LekoviWin2 extends JPanel{
+public class LekoviWin3 extends JPanel{
 	
 	private static final long serialVersionUID = -1814873711205869180L;
 	promenljive source = new promenljive();
@@ -51,7 +51,7 @@ public class LekoviWin2 extends JPanel{
 	JLabel srchL = new JLabel( new ImageIcon(image2, field1.getDescription()) );
 	
 	JPanel tabela = new JPanel();
-	JPanel table = new TabelaLekova2();
+	JPanel table = new TabelaLekova3();
 	
 	JPanel radio = new JPanel();
 	JLabel sort = new JLabel("Sortiraj po:");
@@ -96,7 +96,7 @@ public class LekoviWin2 extends JPanel{
 	
 	
 	
-	public LekoviWin2()
+	public LekoviWin3()
 	{	
 		//Top bar
 		panel.setLayout(new BorderLayout());	
@@ -123,16 +123,16 @@ public class LekoviWin2 extends JPanel{
 			  public void actionPerformed(ActionEvent e) {
 				  ArrayList<SortKey> list = new ArrayList<SortKey>();
 			      list.add( new RowSorter.SortKey(0, SortOrder.ASCENDING) );
-				  TabelaLekova2.sorter.setSortKeys(list);
-				  TabelaLekova2.sorter.sort();
+				  TabelaLekova3.sorter.setSortKeys(list);
+				  TabelaLekova3.sorter.sort();
 			  }
 			});
 		proizvodjac.addActionListener(new ActionListener() {
 			  public void actionPerformed(ActionEvent e) {
 				  ArrayList<SortKey> list = new ArrayList<SortKey>();
 			      list.add( new RowSorter.SortKey(3, SortOrder.ASCENDING) );
-				  TabelaLekova2.sorter.setSortKeys(list);
-				  TabelaLekova2.sorter.sort();
+				  TabelaLekova3.sorter.setSortKeys(list);
+				  TabelaLekova3.sorter.sort();
 			  }
 			});
 		/*
@@ -166,13 +166,13 @@ public class LekoviWin2 extends JPanel{
         srch.getDocument().addDocumentListener(
                 new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) {
-                        TabelaLekova2.newFilter();
+                        TabelaLekova3.newFilter();
                     }
                     public void insertUpdate(DocumentEvent e) {
-                    	TabelaLekova2.newFilter();
+                    	TabelaLekova3.newFilter();
                     }
                     public void removeUpdate(DocumentEvent e) {
-                    	TabelaLekova2.newFilter();
+                    	TabelaLekova3.newFilter();
                     }
                 });
 		
@@ -266,7 +266,7 @@ public class LekoviWin2 extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				od2.getText();
 				do2.getText();
-				TabelaLekova2.newFilter2();
+				TabelaLekova3.newFilter2();
 			}
 		});
 	    rCena2.add(filter);
