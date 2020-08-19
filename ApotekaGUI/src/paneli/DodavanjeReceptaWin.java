@@ -5,6 +5,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -13,6 +19,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import kontroleri.promenljive;
 
@@ -41,28 +54,41 @@ public class DodavanjeReceptaWin extends JPanel{
 	JLabel DatumI = new JLabel("Datum izdavanja       ");
 	JTextField DatumIT = new JTextField();
 	
-	JPanel datumK= new JPanel();
-	JLabel DatumK = new JLabel("Datum kreiranja        ");
-	JTextField DatumKT = new JTextField();
-	
 	JPanel lekovi = new JPanel(); 
 	JLabel Lekovi = new JLabel("LEKOVI           ");
 	
 	JPanel sifra= new JPanel();
-	JLabel Sifra = new JLabel("Sifra                                 ");
+	JLabel Sifra = new JLabel("Ime                                 ");
 	JTextField SifraT = new JTextField();
 	
 	JPanel kolicina= new JPanel();
 	JLabel Kolicina = new JLabel("Kolicina                          ");
 	JTextField KolicinaT = new JTextField();
 	
+	JPanel cena= new JPanel();
+	JLabel cenaL = new JLabel("Cena                                ");
+	JTextField cenaT = new JTextField();
+	
 	JPanel sifraL= new JPanel();
-	JLabel SifraL = new JLabel("SIFRA LEKARA   ");
+	JLabel SifraL = new JLabel("ID LEKARA   ");
 	JTextField SifraLT = new JTextField();
 	
 	JPanel sifraR= new JPanel();
 	JLabel SifraR = new JLabel("SIFRA RECEPTA ");
 	JTextField SifraRT = new JTextField();
+	
+	private static FileInputStream fis;
+	private static FileOutputStream fos;
+	private static Workbook wb;
+	private static Sheet sh;
+	private static Row row;
+	private static Cell cell;
+	private static Cell cell1;
+	private static Cell cell2;
+	private static Cell cell3;
+	private static Cell cell4;
+	private static Cell cell5;
+	private static Cell cell6;
 	
 	
 	public DodavanjeReceptaWin()
@@ -103,13 +129,7 @@ public class DodavanjeReceptaWin extends JPanel{
 		datumI.setLayout(new FlowLayout(FlowLayout.CENTER));
 		datumI.setOpaque( false );
 		DatumI.setOpaque( false );
-		DatumIT.setPreferredSize(new Dimension(150,20));
-		
-		datumK.setLayout(new FlowLayout(FlowLayout.CENTER));
-		datumK.setOpaque( false );
-		DatumK.setOpaque( false );
-		DatumKT.setPreferredSize(new Dimension(150,20));
-		
+		DatumIT.setPreferredSize(new Dimension(150,20));				
 		
 		lekovi.setLayout(new FlowLayout(FlowLayout.CENTER));
 		lekovi.setOpaque( false );
@@ -124,6 +144,11 @@ public class DodavanjeReceptaWin extends JPanel{
 		kolicina.setOpaque( false );
 		Kolicina.setOpaque( false );
 		KolicinaT.setPreferredSize(new Dimension(150,20));
+		
+		cena.setLayout(new FlowLayout(FlowLayout.CENTER));
+		cena.setOpaque( false );
+		cenaL.setOpaque( false );
+		cenaT.setPreferredSize(new Dimension(150,20));
 		
 		sifraL.setLayout(new FlowLayout(FlowLayout.CENTER));
 		sifraL.setOpaque( false );
@@ -162,11 +187,6 @@ public class DodavanjeReceptaWin extends JPanel{
 		datumI.add(DatumI);
 		datumI.add(DatumIT);
 		
-		DatumK.setFont(new Font("Calibri", Font.PLAIN, 15));
-		DatumK.setForeground(Color.white);
-		datumK.add(DatumK);
-		datumK.add(DatumKT);
-		
 		Lekovi.setFont(new Font("Calibri", Font.PLAIN, 20));
 		Lekovi.setForeground(Color.white);
 		lekovi.add(Lekovi);
@@ -181,6 +201,11 @@ public class DodavanjeReceptaWin extends JPanel{
 		Kolicina.setForeground(Color.white);
 		kolicina.add(Kolicina);
 		kolicina.add(KolicinaT);
+		
+		cenaL.setFont(new Font("Calibri", Font.PLAIN, 15));
+		cenaL.setForeground(Color.white);
+		cena.add(cenaL);
+		cena.add(cenaT);
 		
 		SifraL.setFont(new Font("Calibri", Font.PLAIN, 20));
 		SifraL.setForeground(Color.white);
@@ -199,15 +224,76 @@ public class DodavanjeReceptaWin extends JPanel{
 		primeni.setFont(new Font("Calibri", Font.PLAIN, 15));
 		dugme.add(primeni);
 		
+		primeni.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					fis = new FileInputStream("./podaci.xlsx");
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					wb = WorkbookFactory.create(fis);
+				} catch (EncryptedDocumentException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				sh = wb.getSheet("recepti");
+				int noRow= sh.getLastRowNum();
+				row= sh.createRow(noRow+1);
+				cell= row.createCell(0);
+				cell1= row.createCell(1);
+				cell2= row.createCell(2);
+				cell3= row.createCell(3);
+				cell4= row.createCell(4);
+				cell5= row.createCell(5);
+				cell6= row.createCell(6);
+				
+				cell.setCellValue(SifraRT.getText()+".0");
+				cell1.setCellValue(SifraLT.getText());
+				cell2.setCellValue(JMBGT.getText()+".0");
+				cell3.setCellValue(DatumIT.getText());
+				cell4.setCellValue(SifraT.getText());
+				cell5.setCellValue(KolicinaT.getText()+".0");
+				int i= Integer.parseInt(KolicinaT.getText()) * Integer.parseInt(cenaT.getText());
+				cell6.setCellValue(String.valueOf(i)+".0");
+				try {
+					fos= new FileOutputStream("./podaci.xlsx");
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					wb.write(fos);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					fos.flush();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				try {
+					fos.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 		izmene.add(podaci);
 		izmene.add(jmbg);
 		izmene.add(podaci2);
 		izmene.add(datumI);
-		izmene.add(datumK);
 		izmene.add(lekovi);
 		izmene.add(sifra);
 		izmene.add(kolicina);
+		izmene.add(cena);
 		izmene.add(sifraL);
 		izmene.add(sifraR);
 		izmene.add(dugme);

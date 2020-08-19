@@ -49,6 +49,7 @@ public class AddUser extends JPanel {
 					Lekovi.panel.setVisible(false);
 					Lekovi.panel2.setVisible(false);
 					Lekovi.panel3.setVisible(false);
+					Recepti3.panel.setVisible(false);
 					Korpa.panel.setVisible(false);
 					Admin.prozor.validate();
                     Admin.prozor.repaint();

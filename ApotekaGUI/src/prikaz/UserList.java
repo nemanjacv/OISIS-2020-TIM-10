@@ -49,6 +49,7 @@ public class UserList extends JPanel {
 					Lekovi.panel3.setVisible(false);
 					Korpa.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
+					Recepti3.panel.setVisible(false);
 					Admin.wlcm.setVisible(false);
 					Admin.prozor.validate();
                     Admin.prozor.repaint();

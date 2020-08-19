@@ -58,6 +58,7 @@ public class Lekovi extends JPanel {
 					Recepti.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
 					Korpa.panel.setVisible(false);
+					Recepti3.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
 					Admin.prozor.validate();
                     Admin.prozor.repaint();

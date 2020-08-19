@@ -16,7 +16,6 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -30,11 +29,9 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import kontroleri.promenljive;
-import prikaz.Recepti;
-import prikaz.TabelaRecepata;
-import prozori.Lekar;
+import prikaz.TabelaRecepata3;
 
-public class ReceptiWin extends JPanel{
+public class ReceptiWin3 extends JPanel{
 	
 	private static final long serialVersionUID = -1814873711205869180L;
 	promenljive source = new promenljive();
@@ -51,7 +48,7 @@ public class ReceptiWin extends JPanel{
 	JLabel srchL = new JLabel( new ImageIcon(image2, field1.getDescription()) );
 	
 	JPanel tabela = new JPanel();
-	JPanel table = new TabelaRecepata();
+	JPanel table = new TabelaRecepata3();
 	
 	JPanel radio = new JPanel();
 	JLabel sort = new JLabel("Sortiraj po:");
@@ -95,7 +92,7 @@ public class ReceptiWin extends JPanel{
 	
 	
 	
-	public ReceptiWin()
+	public ReceptiWin3()
 	{	
 		//Top bar
 		panel.setLayout(new BorderLayout());	
@@ -122,37 +119,37 @@ public class ReceptiWin extends JPanel{
 			  public void actionPerformed(ActionEvent e) {
 				  ArrayList<SortKey> list = new ArrayList<SortKey>();
 			      list.add( new RowSorter.SortKey(0, SortOrder.ASCENDING) );
-				  TabelaRecepata.sorter.setSortKeys(list);
-				  TabelaRecepata.sorter.sort();
+				  TabelaRecepata3.sorter.setSortKeys(list);
+				  TabelaRecepata3.sorter.sort();
 			  }
 			});
 		proizvodjac.addActionListener(new ActionListener() {
 			  public void actionPerformed(ActionEvent e) {
 				  ArrayList<SortKey> list = new ArrayList<SortKey>();
 			      list.add( new RowSorter.SortKey(1, SortOrder.ASCENDING) );
-				  TabelaRecepata.sorter.setSortKeys(list);
-				  TabelaRecepata.sorter.sort();
+				  TabelaRecepata3.sorter.setSortKeys(list);
+				  TabelaRecepata3.sorter.sort();
 			  }
 			});
 		datum.addActionListener(new ActionListener() {
 			  public void actionPerformed(ActionEvent e) {
 				  ArrayList<SortKey> list = new ArrayList<SortKey>();
 			      list.add( new RowSorter.SortKey(3, SortOrder.ASCENDING) );
-				  TabelaRecepata.sorter.setSortKeys(list);
-				  TabelaRecepata.sorter.sort();
+				  TabelaRecepata3.sorter.setSortKeys(list);
+				  TabelaRecepata3.sorter.sort();
 			  }
 			});
 		/*
 		od2.getDocument().addDocumentListener(
                 new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) {
-                        TabelaRecepata.newFilter2();
+                        TabelaRecepata3.newFilter2();
                     }
                     public void insertUpdate(DocumentEvent e) {
-                    	TabelaRecepata.newFilter2();
+                    	TabelaRecepata3.newFilter2();
                     }
                     public void removeUpdate(DocumentEvent e) {
-                    	TabelaRecepata.newFilter2();
+                    	TabelaRecepata3.newFilter2();
                     }
                     
                 });
@@ -160,26 +157,26 @@ public class ReceptiWin extends JPanel{
 		do2.getDocument().addDocumentListener(
                 new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) {
-                        TabelaRecepata.newFilter2();
+                        TabelaRecepata3.newFilter2();
                     }
                     public void insertUpdate(DocumentEvent e) {
-                    	TabelaRecepata.newFilter2();
+                    	TabelaRecepata3.newFilter2();
                     }
                     public void removeUpdate(DocumentEvent e) {
-                    	TabelaRecepata.newFilter2();
+                    	TabelaRecepata3.newFilter2();
                     }
                 });
                 */
         srch.getDocument().addDocumentListener(
                 new DocumentListener() {
                     public void changedUpdate(DocumentEvent e) {
-                        TabelaRecepata.newFilter();
+                        TabelaRecepata3.newFilter();
                     }
                     public void insertUpdate(DocumentEvent e) {
-                    	TabelaRecepata.newFilter();
+                    	TabelaRecepata3.newFilter();
                     }
                     public void removeUpdate(DocumentEvent e) {
-                    	TabelaRecepata.newFilter();
+                    	TabelaRecepata3.newFilter();
                     }
                 });
 		
@@ -256,29 +253,6 @@ public class ReceptiWin extends JPanel{
 	    NazivPnl.add(naziv);
 	    NazivPnl.setOpaque(false);
 	    radio.add(NazivPnl);
-	    
-	    JButton dodaj=new JButton("Dodaj Recept");
-	    
-	    JPanel dugmici= new JPanel();
-	    dugmici.setLayout(new FlowLayout(FlowLayout.LEFT));
-	    dugmici.setOpaque(false);
-	    dugmici.add(dodaj);
-	    
-	    dodaj.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				Recepti.panel.setVisible(false);
-				Recepti.panel2.setVisible(true);
-				Lekar.prozor.add(Recepti.panel2, BorderLayout.CENTER);
-				Lekar.prozor.validate();
-                Lekar.prozor.repaint();
-				
-			}
-		});
-	    
-	    radio.add(dugmici);
 	    
 	    radio.setBorder(new EmptyBorder(0, 0, 100, 100));
 	    

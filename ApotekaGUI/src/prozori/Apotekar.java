@@ -31,7 +31,7 @@ public class Apotekar {
 	JPanel logo = new Logo();
 	JPanel lek = new Lekovi3();
 	JPanel korpa = new Korpa();
-	//JPanel recept = new Recept();
+	JPanel recept = new Recepti2();
 	JPanel dno = new JPanel();
 	JPanel ctrl = new prikaz.Logout();
 	
@@ -83,7 +83,7 @@ public class Apotekar {
 		ikone.setLayout(new BoxLayout(ikone, BoxLayout.Y_AXIS));
 		ikone.setOpaque(false);
 		korpa.setOpaque(false);
-		//recept.setOpaque(false);
+		recept.setOpaque(false);
 		lek.setOpaque(false);
 		dno.setPreferredSize(new Dimension(source.blWidth, source.blHeight*2));
 		dno.setOpaque(false);
@@ -94,7 +94,7 @@ public class Apotekar {
 		dno.add(ctrl, BorderLayout.PAGE_END);
 		ikone.add(lek);
 		ikone.add(korpa);
-		//ikone.add(recept);
+		ikone.add(recept);
 		ikone.add(dno);
 		prozor.add(ikone,BorderLayout.LINE_START);
 		

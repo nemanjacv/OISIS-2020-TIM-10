@@ -5,24 +5,26 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+
 import kontroleri.promenljive;
-import paneli.KorpaWin;
+import paneli.ReceptiWin3;
+import prozori.Admin;
 import prozori.Apotekar;
 
-public class Korpa extends JPanel {
+public class Recepti3 extends JPanel {
 	
-	public static JPanel panel = new KorpaWin();
+	public static JPanel panel = new ReceptiWin3();
 	private static final long serialVersionUID = 6714572452258716717L;
 	promenljive source = new promenljive();
-	public Korpa()
+	public Recepti3()
 	{
 	panel.setOpaque(false);
-
-	ImageIcon logoico = new ImageIcon("img/i5.png");
+	ImageIcon logoico = new ImageIcon("img/i6w.png");
 	Image image3 = logoico.getImage().getScaledInstance( source.iWidth, source.iHeight , Image.SCALE_SMOOTH);
 	JButton logo = new JButton("");
 	logoico = new ImageIcon(image3, logoico.getDescription());
@@ -40,14 +42,13 @@ public class Korpa extends JPanel {
 				
 				@Override
 				public void run() {
-					Apotekar.prozor.add(panel, BorderLayout.CENTER);
+					Admin.prozor.add(panel, BorderLayout.CENTER);
 					panel.setVisible(true);
-					Apotekar.wlcm.setVisible(false);
+					Admin.wlcm.setVisible(false);
+					Lekovi2.panel.setVisible(false);
 					UserList.panel.setVisible(false);
-					Recepti.panel.setVisible(false);
-					Recepti2.panel.setVisible(false);
-					Lekovi3.panel.setVisible(false);
-					Izvestaj.panel.setVisible(false);					
+					Izvestaj.panel.setVisible(false);
+					Korpa.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
 					Apotekar.prozor.validate();
 					Apotekar.prozor.repaint();

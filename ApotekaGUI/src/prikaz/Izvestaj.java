@@ -49,6 +49,7 @@ public class Izvestaj extends JPanel {
 					Lekovi.panel2.setVisible(false);
 					Lekovi.panel3.setVisible(false);
 					Korpa.panel.setVisible(false);
+					Recepti3.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
 					Admin.prozor.validate();
                     Admin.prozor.repaint();

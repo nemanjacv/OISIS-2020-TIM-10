@@ -15,7 +15,6 @@ import kontroleri.promenljive;
 import paneli.LekoviWin3;
 import prozori.Admin;
 import prozori.Apotekar;
-import prozori.Lekar;
 
 public class Lekovi3 extends JPanel {
 	
@@ -46,9 +45,8 @@ public class Lekovi3 extends JPanel {
 					Apotekar.prozor.add(panel, BorderLayout.CENTER);
 					panel.setVisible(true);
 					Apotekar.wlcm.setVisible(false);
-					Lekar.wlcm.setVisible(false);
 					UserList.panel.setVisible(false);
-					Recepti.panel.setVisible(false);
+					Recepti2.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
 					Korpa.panel.setVisible(false);
 					AddUser.panel.setVisible(false);

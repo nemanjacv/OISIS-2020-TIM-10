@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import kontroleri.promenljive;
+import prikaz.Recepti3;
 import prikaz.TabelaIzvestaja;
 
 public class IzvestajWin extends JPanel{
@@ -24,6 +25,7 @@ public class IzvestajWin extends JPanel{
 	private static final long serialVersionUID = -1814873711205869180L;
 	promenljive source = new promenljive();
 	
+	JPanel rec = new Recepti3();
 	public static JPanel panel = new JPanel();
 	JPanel top = new JPanel();
 	JLabel korisnici = new JLabel("Izvestaj");
@@ -42,6 +44,7 @@ public class IzvestajWin extends JPanel{
 	{	
 		//Top bar
 				panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));	
+				rec.setOpaque(false);
 				
 				korisnici.setFont(new Font("Calibri", Font.PLAIN, 20)); 
 				korisnici.setForeground(Color.white);
@@ -97,6 +100,7 @@ public class IzvestajWin extends JPanel{
 		
 		dugme.add(idsP);
 		dugme.add(idsP2);
+		dugme.add(rec);
 
 		tabela.add(table);
 		table.setOpaque(false);
