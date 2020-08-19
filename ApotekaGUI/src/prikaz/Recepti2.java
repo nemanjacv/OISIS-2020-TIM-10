@@ -48,6 +48,7 @@ public class Recepti2 extends JPanel {
 					UserList.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
 					Korpa.panel.setVisible(false);
+					Shop.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
 					Apotekar.prozor.validate();
 					Apotekar.prozor.repaint();

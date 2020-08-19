@@ -48,6 +48,7 @@ public class Lekovi3 extends JPanel {
 					UserList.panel.setVisible(false);
 					Recepti2.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);
+					Shop.panel.setVisible(false);
 					Korpa.panel.setVisible(false);
 					AddUser.panel.setVisible(false);
 					Admin.prozor.validate();

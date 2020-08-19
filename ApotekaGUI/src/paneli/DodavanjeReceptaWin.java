@@ -51,7 +51,7 @@ public class DodavanjeReceptaWin extends JPanel{
 	JLabel Podaci2 = new JLabel("OSTALI PODACI     ");
 	
 	JPanel datumI = new JPanel();
-	JLabel DatumI = new JLabel("Datum izdavanja       ");
+	JLabel DatumI = new JLabel("Datum/vr. izdavanja ");
 	JTextField DatumIT = new JTextField();
 	
 	JPanel lekovi = new JPanel(); 
@@ -70,7 +70,7 @@ public class DodavanjeReceptaWin extends JPanel{
 	JTextField cenaT = new JTextField();
 	
 	JPanel sifraL= new JPanel();
-	JLabel SifraL = new JLabel("ID LEKARA   ");
+	JLabel SifraL = new JLabel("ID LEKARA         ");
 	JTextField SifraLT = new JTextField();
 	
 	JPanel sifraR= new JPanel();

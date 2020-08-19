@@ -45,6 +45,7 @@ public class Korpa extends JPanel {
 					Apotekar.wlcm.setVisible(false);
 					UserList.panel.setVisible(false);
 					Recepti.panel.setVisible(false);
+					Shop.panel.setVisible(false);
 					Recepti2.panel.setVisible(false);
 					Lekovi3.panel.setVisible(false);
 					Izvestaj.panel.setVisible(false);					

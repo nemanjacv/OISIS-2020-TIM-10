@@ -59,6 +59,35 @@ public class KorisnickaTabela extends JPanel
         add(scrollPane);
     }
     
+    public static String[] SH2()  {
+		try {
+			fis= new FileInputStream("./podaci.xlsx");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			wb= WorkbookFactory.create(fis);
+		} catch (EncryptedDocumentException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sh=wb.getSheet("korisnici");
+		int noRows = sh.getLastRowNum();
+		
+		String[] data1 = new String[noRows];
+		String[] data2 = new String[noRows];
+		String[] data = new String[noRows];
+		int k=0;
+		for (int i=1; i< noRows; i=i+2)
+		{	k=k+1;
+			data1[i] = formatter.formatCellValue(sh.getRow(i+1).getCell(2));
+			data2[i] = formatter.formatCellValue(sh.getRow(i+1).getCell(3));
+			data[k-1] = data2[i]+" "+data1[i];
+		}
+		return data;
+	}
+    
     public static void newFilter() {
         RowFilter<MyTableModel, Object> rf = null;
         //If current expression doesn't parse, don't update.

@@ -9,12 +9,14 @@ import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import kontroleri.promenljive;
+import prikaz.KorisnickaTabela;
 
 public class ProdajaWin extends JPanel{
 	
@@ -32,7 +34,7 @@ public class ProdajaWin extends JPanel{
 	JPanel sifra = new JPanel();
 	JPanel korpa = new JPanel();
 	
-	JLabel Prodaja = new JLabel("Lekovi bez recepta ");
+	JLabel Prodaja = new JLabel("Lekovi bez recepta (sifra i kolicina) ");
 	
 	JTextField SifraL = new JTextField();
 	JTextField Kolicina = new JTextField();
@@ -86,8 +88,7 @@ public class ProdajaWin extends JPanel{
 		SifraL.setPreferredSize(new Dimension(100,25));
 		Kolicina.setPreferredSize(new Dimension(100,25));
 		
-		JButton dugme1=new JButton("Dodaj");
-		dugme1.setPreferredSize(new Dimension(50,25));
+		JButton dugme1=new JButton("Dodaj");		
 		lek.add(SifraL);
 		lek.add(Kolicina);
         lek.add(dugme1);
@@ -100,16 +101,16 @@ public class ProdajaWin extends JPanel{
 		
 		SifraR.setPreferredSize(new Dimension(100,25));
 		JButton dugme2=new JButton("Dodaj");
-		dugme2.setPreferredSize(new Dimension(50,25));
 		sifra.add(SifraR);
         sifra.add(dugme2);
         
         
         
-        JButton dugme3=new JButton("Korpa");
-		dugme3.setPreferredSize(new Dimension(50,25));
+        String[] sifre = KorisnickaTabela.SH2();
+		JComboBox<?> ids = new JComboBox<Object>(sifre);
+		ids.setPreferredSize(new Dimension(150,25));
 
-        korpa.add(dugme3);
+        korpa.add(ids);
         
 
 		

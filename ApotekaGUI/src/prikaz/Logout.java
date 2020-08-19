@@ -76,6 +76,7 @@ public class Logout extends JPanel {
 				Recepti2.panel.setVisible(false);
 				Recepti3.panel.setVisible(false);
 				Recepti.panel2.setVisible(false);
+				Shop.panel.setVisible(false);
 				Korpa.panel.setVisible(false);
 				Izvestaj.panel.setVisible(false);
 				AddUser.panel.setVisible(false);

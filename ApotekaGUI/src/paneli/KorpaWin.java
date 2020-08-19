@@ -11,6 +11,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import kontroleri.promenljive;
@@ -50,7 +51,7 @@ public class KorpaWin extends JPanel{
 		
 				korpa.setLayout(new BorderLayout());	
 				korpa.setOpaque(false);
-				korpa.setBorder(new EmptyBorder(30, 0,0, 0));
+				korpa.setBorder(new EmptyBorder(100, 0,0, 20));
 				
 				tabela.setLayout(new FlowLayout());
 				dugme.setLayout(new BoxLayout(dugme, BoxLayout.Y_AXIS));
@@ -75,11 +76,12 @@ public class KorpaWin extends JPanel{
 				korpa.add(tabela,BorderLayout.CENTER);
 				korpa.add(dugme,BorderLayout.EAST);
 				
-				
+				JTable table = new JTable();
+				tabela.add(table);
 		
 		
 		panel.add(top, BorderLayout.LINE_START);
-		panel.add(korpa, BorderLayout.LINE_START);
+		panel.add(korpa, BorderLayout.SOUTH);
 		add(panel);
 	}
 }
